@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELT 8214 – Digital Communications Technology Solutions</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#eceff1;color:#263238;padding:16px;font-size:14px;line-height:1.7}
+.wrap{max-width:1020px;margin:0 auto}
+header{background:linear-gradient(135deg,#0d47a1,#1565c0);color:#fff;padding:22px 28px;border-radius:10px;margin-bottom:20px;text-align:center}
+header h1{font-size:1.4rem}
+header p{font-size:.85rem;opacity:.88;margin-top:4px}
+.nav-bar{background:#fff;border-radius:8px;padding:12px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.08);flex-wrap:wrap;gap:10px}
+.reflink{display:inline-flex;align-items:center;gap:6px;background:#e8eaf6;border:1px solid #9fa8da;border-radius:6px;padding:7px 14px;text-decoration:none;color:#283593;font-size:.85rem;font-weight:600;transition:background 0.2s}
+.reflink:hover{background:#c5cae9}
+.card{background:#fff;border-radius:10px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+.ql{display:inline-block;background:#0d47a1;color:#fff;padding:3px 14px;border-radius:20px;font-size:.78rem;font-weight:700;margin-bottom:10px}
+.card h2{font-size:1.1rem;color:#0d47a1;margin-bottom:12px;border-bottom:2px solid #e8eaf6;padding-bottom:6px}
+.card h3{font-size:.95rem;color:#1565c0;margin:14px 0 6px}
+.eqbox{background:#e8eaf6;border-left:4px solid #3f51b5;padding:10px 18px;margin:10px 0;border-radius:0 6px 6px 0;overflow-x:auto}
+.sbox{background:#f3f4ff;border:1px solid #c5cae9;padding:12px 16px;border-radius:6px;margin:8px 0}
+.abox{background:#fff8e1;border-left:4px solid #ff8f00;padding:12px 16px;border-radius:0 6px 6px 0;margin:10px 0;line-height:2}
+.ref-note{background:#e8f5e9;border-left:4px solid #43a047;padding:12px 16px;border-radius:0 6px 6px 0;margin:10px 0;font-size:.92rem}
+table{border-collapse:collapse;width:100%;font-size:.85rem;margin:12px 0}
+th{background:#1565c0;color:#fff;padding:9px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top}
+tr:nth-child(even) td{background:#f8f9fa}
+.row{display:flex;gap:18px;flex-wrap:wrap}
+.col{flex:1;min-width:260px}
+.cap{text-align:center;font-size:.75rem;color:#78909c;margin-top:5px}
+p{margin-bottom:8px}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin-bottom:4px}
+.badge-yes{background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:12px;font-weight:600;font-size:0.75rem;}
+.badge-no{background:#ffebee;color:#c62828;padding:2px 8px;border-radius:12px;font-weight:600;font-size:0.75rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>ELT 8214: Digital Communications Technology</h1>
+  <p>Department of Physics | Bayero University, Kano — M.Sc. Electronics Examinations (2020/2021 Session)</p>
+  <p style="font-size:0.78rem; opacity:0.85; margin-top:2px;">Complete Reference Solutions with Mathematical Proofs, Block Diagrams &amp; Code Classifications</p>
+</header>
+
+<div class="nav-bar">
+  <div><strong>Cross-Course References:</strong> Direct links to related undergraduate modules:</div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+    <a class="reflink" href="ELT4301_CA_Solutions.html" target="_blank">📄 View ELT 4301 C.A. Solutions</a>
+    <a class="reflink" href="ELT4301_Exam_Solutions.html" target="_blank">📄 View ELT 4301 Exam Solutions</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 1
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 1 (a) &amp; (b)</span>
+<h2>Information Measure, Entropy, Channel Capacity &amp; Transition Diagrams</h2>
+
+<h3>Part 1 (a)(i): Shannon's Information Measure \(I(X)\) and Entropy \(H(X)\)</h3>
+<p>For a discrete memoryless source emitting symbol \(x_i\) with probability \(P(x_i)\):</p>
+<ul>
+  <li><strong>Self-Information Measure \(I(x_i)\):</strong>
+    <div class="eqbox">
+      $$I(x_i) = \log_b\left(\frac{1}{P(x_i)}\right) = -\log_b P(x_i)$$
+    </div>
+    When base \(b = 2\), the unit is <strong>bits</strong> (or Shannons). When \(b = e\), the unit is <strong>nats</strong>. When \(b = 10\), the unit is <strong>Hartleys</strong> (decits).
+  </li>
+  <li><strong>Source Entropy \(H(X)\):</strong> Defined as the mathematical expectation (statistical average) of the self-information over all \(M\) possible symbols:
+    <div class="eqbox">
+      $$H(X) = E\bigl[I(X)\bigr] = \sum_{i=1}^{M} P(x_i)\,I(x_i) = -\sum_{i=1}^{M} P(x_i)\log_2 P(x_i) \quad \text{(bits/symbol)}$$
+    </div>
+  </li>
+</ul>
+
+<h3>Binary Source Curves: \(I(p)\) and \(H(p)\)</h3>
+<div class="row">
+  <div class="col" style="flex:1.5;">
+    <svg id="info-entropy-curves" viewBox="0 0 540 240" width="100%"></svg>
+    <p class="cap">Fig 1: Self-Information \(I(p) = -\log_2(p)\) and Binary Entropy Function \(H(p) = -p\log_2 p - (1-p)\log_2(1-p)\)</p>
+  </div>
+  <div class="col" style="min-width:240px;">
+    <div class="sbox">
+      <strong>Key Curve Observations:</strong>
+      <ul>
+        <li><strong>\(I(p)\):</strong> Monotonically decreases from \(\infty\) as \(p \to 0\) down to \(0\) at \(p = 1\).</li>
+        <li><strong>\(H(p)\):</strong> Strictly concave symmetric curve:
+          <ul>
+            <li>\(H(0) = 0\) (absolute certainty in symbol 0).</li>
+            <li>\(H(1) = 0\) (absolute certainty in symbol 1).</li>
+            <li>Maximum entropy: \(H(0.5) = 1.0\text{ bit/symbol}\) at equiprobable distribution \(p = 0.5\).</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>Part 1 (a)(ii): Three Intuitive Properties &amp; Relationships with Uncertainty</h3>
+<ol>
+  <li><strong>Non-negativity:</strong> Since \(0 \le P(x_i) \le 1\), \(\frac{1}{P(x_i)} \ge 1\), hence \(I(x_i) \ge 0\). Receipt of an event can never decrease our knowledge or convey negative information.</li>
+  <li><strong>Monotonicity with Probability / Uncertainty:</strong> If \(P(x_1) < P(x_2)\), then \(I(x_1) > I(x_2)\). Less probable events represent higher surprise/uncertainty, thus conveying greater information upon realization. A certain event (\(P=1\)) yields \(I = 0\).</li>
+  <li><strong>Additivity for Independent Events:</strong> If two occurrences \(x_1\) and \(x_2\) are statistically independent, \(P(x_1, x_2) = P(x_1)P(x_2)\), and:
+    $$I(x_1, x_2) = -\log_2[P(x_1)P(x_2)] = -\log_2 P(x_1) - \log_2 P(x_2) = I(x_1) + I(x_2)$$
+  </li>
+</ol>
+<div class="sbox">
+  <strong>Three Relationships between \(I(X)\) and Uncertainty:</strong>
+  <ol>
+    <li>Information gained is directly equal to the amount of uncertainty resolved by the occurrence of the event (\(\Delta U = I\)).</li>
+    <li>Maximum uncertainty in a source occurs when all outcomes are equiprobable, which simultaneously maximizes the average information (entropy \(H_{max} = \log_2 M\)).</li>
+    <li>Zero uncertainty implies zero information (\(P=1 \implies I=0\)); infinite uncertainty as an event becomes vanishingly rare implies unbounded information (\(P \to 0 \implies I \to \infty\)).</li>
+  </ol>
+</div>
+
+<h3>Part 1 (b)(i): Channel Capacity</h3>
+<p>For a discrete memoryless channel with input alphabet \(X\) and output alphabet \(Y\), the transmission of information is quantified by the <strong>Mutual Information</strong> \(I(X; Y)\):</p>
+<div class="eqbox">
+$$I(X; Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) \quad \text{(bits/channel use)}$$
+</div>
+<p><strong>Channel Capacity \(C\):</strong> Defined as the maximum mutual information over all possible input probability distributions \(P(X)\):</p>
+<div class="eqbox">
+$$C = \max_{P(X)} I(X; Y) \quad \text{(bits/channel use)}$$
+</div>
+<p>For a continuous-time, band-limited channel corrupted by Additive White Gaussian Noise (AWGN), the maximum information rate is given by the <strong>Shannon-Hartley Theorem</strong>:</p>
+<div class="eqbox">
+$$\boxed{C = B \log_2\left(1 + \frac{S}{N}\right) = B \log_2\left(1 + \frac{S}{N_0 B}\right) \quad \text{(bits/second)}}$$
+</div>
+<p>where \(B\) is the channel bandwidth (Hz), \(S\) is average signal power (W), \(N\) is total noise power (W), and \(N_0\) is noise power spectral density (W/Hz).</p>
+
+<h3>Part 1 (b)(ii): Transition Diagrams (BSC &amp; BEC)</h3>
+<div class="row">
+  <div class="col">
+    <svg id="bsc-diagram" viewBox="0 0 380 180" width="100%"></svg>
+    <p class="cap">Fig 2a: Binary Symmetric Channel (BSC) with error probability \(p\)</p>
+  </div>
+  <div class="col">
+    <svg id="bec-diagram" viewBox="0 0 380 180" width="100%"></svg>
+    <p class="cap">Fig 2b: Binary Erasure Channel (BEC) with erasure probability \(\epsilon\)</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 2
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 2 (a) &amp; (b)</span>
+<h2>Entropy, Information Rate &amp; Message Uncertainties</h2>
+
+<h3>Part 2 (a): Source Emitting Every 1 ms with Probabilities \(\{0.1, 0.2, 0.3, 0.4\}\)</h3>
+<p>Given symbol duration \(T_s = 1\text{ ms} = 10^{-3}\text{ s} \implies\) Symbol emission rate \(r_s = \frac{1}{T_s} = 1000\text{ symbols/second}\).</p>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <strong>i) Average Information (Entropy \(H(X)\)):</strong>
+    $$H(X) = -\sum_{i=1}^{4} P_i \log_2 P_i$$
+    <ul>
+      <li>\(P_1 = 0.1 \implies -0.1 \log_2(0.1) = -0.1(-3.3219) = 0.3322\text{ bits}\)</li>
+      <li>\(P_2 = 0.2 \implies -0.2 \log_2(0.2) = -0.2(-2.3219) = 0.4644\text{ bits}\)</li>
+      <li>\(P_3 = 0.3 \implies -0.3 \log_2(0.3) = -0.3(-1.7370) = 0.5211\text{ bits}\)</li>
+      <li>\(P_4 = 0.4 \implies -0.4 \log_2(0.4) = -0.4(-1.3219) = 0.5288\text{ bits}\)</li>
+    </ul>
+    $$H(X) = 0.3322 + 0.4644 + 0.5211 + 0.5288 = \mathbf{1.8465\text{ bits/symbol}}$$
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>ii) Information Rate (bps) of Each Message &amp; Source:</strong>
+    <p>Overall source rate: \(R = r_s \cdot H(X) = 1000 \times 1.8465 = \mathbf{1846.5\text{ bps}}\).</p>
+    <p>Individual message information content \(I_i = -\log_2 P_i\) and generation rate contribution \(R_i = (r_s P_i) \cdot I_i\):</p>
+    <table>
+      <tr><th>Message</th><th>\(P_i\)</th><th>\(I_i\) (bits)</th><th>Emission Rate</th><th>Rate Contrib. \(R_i\)</th></tr>
+      <tr><td>\(m_1\)</td><td>0.1</td><td>3.322</td><td>100 msgs/s</td><td><strong>332.2 bps</strong></td></tr>
+      <tr><td>\(m_2\)</td><td>0.2</td><td>2.322</td><td>200 msgs/s</td><td><strong>464.4 bps</strong></td></tr>
+      <tr><td>\(m_3\)</td><td>0.3</td><td>1.737</td><td>300 msgs/s</td><td><strong>521.1 bps</strong></td></tr>
+      <tr><td>\(m_4\)</td><td>0.4</td><td>1.322</td><td>400 msgs/s</td><td><strong>528.8 bps</strong></td></tr>
+      <tr><td><strong>Total</strong></td><td>1.0</td><td>—</td><td>1000 msgs/s</td><td><strong>1846.5 bps</strong></td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<h3>Part 2 (b): Information Content in Bits and Hartleys (Table 1.0)</h3>
+<p>Formulas: \(I_{\text{bits}} = -\log_2 P_i\), \(I_{\text{Hartley}} = -\log_{10} P_i\), with \(I_{\text{bits}} = \frac{I_{\text{Hartley}}}{\log_{10} 2} \approx 3.32193 \cdot I_{\text{Hartley}}\).</p>
+<table>
+<tr>
+  <th>Message</th>
+  <th>Probability \(P_i\)</th>
+  <th>\(I_i\) in <strong>Hartleys</strong> (\(-\log_{10} P_i\))</th>
+  <th>\(I_i\) in <strong>Bits</strong> (\(-\log_2 P_i\))</th>
+  <th>\(P_i \cdot I_i\) (bits)</th>
+</tr>
+<tr><td>\(X_1\)</td><td>0.25</td><td>0.6021</td><td><strong>2.0000</strong></td><td>0.5000</td></tr>
+<tr><td>\(X_2\)</td><td>0.05</td><td>1.3010</td><td><strong>4.3219</strong></td><td>0.2161</td></tr>
+<tr><td>\(X_3\)</td><td>0.20</td><td>0.6990</td><td><strong>2.3219</strong></td><td>0.4644</td></tr>
+<tr><td>\(X_4\)</td><td>0.10</td><td>1.0000</td><td><strong>3.3219</strong></td><td>0.3322</td></tr>
+<tr><td>\(X_5\)</td><td>0.09</td><td>1.0458</td><td><strong>3.4739</strong></td><td>0.3127</td></tr>
+<tr><td>\(X_6\)</td><td>0.01</td><td>2.0000</td><td><strong>6.6439</strong></td><td>0.0664</td></tr>
+<tr><td>\(X_7\)</td><td>0.07</td><td>1.1549</td><td><strong>3.8365</strong></td><td>0.2686</td></tr>
+<tr><td>\(X_8\)</td><td>0.23</td><td>0.6383</td><td><strong>2.1203</strong></td><td>0.4877</td></tr>
+<tr><td><strong>Sum</strong></td><td><strong>1.00</strong></td><td>—</td><td>—</td><td><strong>H(X) = 2.6480</strong></td></tr>
+</table>
+<div class="abox">
+  ✦ <strong>Average Information (Entropy):</strong> \(H(X) = \sum P_i I_i = \mathbf{2.648\text{ bits/symbol}}\)
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 3
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 3</span>
+<h2>Huffman Code Design (Table 2.0)</h2>
+
+<p>Given probabilities in Table 2.0: \(\{X_1:0.25, X_2:0.25, X_3:0.15, X_4:0.10, X_5:0.10, X_6:0.08, X_7:0.06, X_8:0.01\}\).</p>
+
+<h3>1. Step-by-Step Huffman Reduction</h3>
+<table>
+<tr>
+  <th>Symbol</th>
+  <th>Orig. Prob</th>
+  <th>Stage 1</th>
+  <th>Stage 2</th>
+  <th>Stage 3</th>
+  <th>Stage 4</th>
+  <th>Stage 5</th>
+  <th>Stage 6</th>
+  <th>Codeword</th>
+  <th>Length \(l_i\)</th>
+</tr>
+<tr><td>\(X_1\)</td><td>0.25</td><td>0.25</td><td>0.25</td><td>0.25</td><td>0.25 (01)</td><td>0.25 (01)</td><td rowspan="2">0.55 (0)</td><td><code>01</code></td><td>2</td></tr>
+<tr><td>\(X_2\)</td><td>0.25</td><td>0.25</td><td>0.25</td><td>0.25</td><td>0.25 (10)</td><td rowspan="2">0.45 (1)</td><td><code>10</code></td><td>2</td></tr>
+<tr><td>\(X_3\)</td><td>0.15</td><td>0.15</td><td>0.15</td><td>0.15</td><td rowspan="2">0.30 (00)</td><td rowspan="2">0.45 (1)</td><td><code>110</code></td><td>3</td></tr>
+<tr><td>\(X_4\)</td><td>0.10</td><td>0.10</td><td>0.10</td><td rowspan="2">0.20 (11)</td><td rowspan="2">0.30 (00)</td><td><code>001</code></td><td>3</td></tr>
+<tr><td>\(X_5\)</td><td>0.10</td><td>0.10</td><td>0.10</td><td rowspan="2">0.20 (11)</td><td><code>000</code></td><td>3</td></tr>
+<tr><td>\(X_6\)</td><td>0.08</td><td>0.08</td><td rowspan="2">0.15 (111)</td><td><code>1111</code></td><td>4</td></tr>
+<tr><td>\(X_7\)</td><td>0.06</td><td rowspan="2">0.07 (1110)</td><td><code>11101</code></td><td>5</td></tr>
+<tr><td>\(X_8\)</td><td>0.01</td><td><code>11100</code></td><td>5</td></tr>
+</table>
+
+<h3>2. Entropy, Average Code Length &amp; Efficiency</h3>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <strong>i) Code Entropy \(H(X)\):</strong>
+    $$H(X) = -\sum_{i=1}^8 P_i \log_2 P_i = \mathbf{2.6764\text{ bits/symbol}}$$
+    <strong>Average Code Length \(\bar{L}\):</strong>
+    $$\bar{L} = \sum_{i=1}^8 P_i \cdot l_i$$
+    $$\bar{L} = 0.25(2) + 0.25(2) + 0.15(3) + 0.10(3) + 0.10(3) + 0.08(4) + 0.06(5) + 0.01(5)$$
+    $$\bar{L} = 0.50 + 0.50 + 0.45 + 0.30 + 0.30 + 0.32 + 0.30 + 0.05 = \mathbf{2.720\text{ bits/symbol}}$$
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>ii) Code Efficiency (\(\eta\)) and Redundancy (\(\gamma\)):</strong>
+    $$\eta = \frac{H(X)}{\bar{L}} \times 100\% = \frac{2.6764}{2.7200} \times 100\% = \mathbf{98.40\%}$$
+    $$\text{Redundancy: } \gamma = 1 - \eta = 100\% - 98.40\% = \mathbf{1.60\%}$$
+  </div>
+  <div class="abox">
+    ✦ <strong>Code Entropy:</strong> \(H(X) = 2.676\text{ bits/symbol}\)<br>
+    ✦ <strong>Average Length:</strong> \(\bar{L} = 2.720\text{ bits/symbol}\)<br>
+    ✦ <strong>Coding Efficiency:</strong> \(\eta = 98.40\%\)<br>
+    ✦ <strong>Redundancy:</strong> \(\gamma = 1.60\%\)
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 4
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 4 (a) &amp; (b)</span>
+<h2>Figure 1.0 Decision Tree Analysis &amp; DCS Block Diagrams</h2>
+
+<h3>Part 4 (a): Decision Tree Analysis with Table 1.0</h3>
+<div class="row">
+  <div class="col" style="flex:1.4;">
+    <svg id="decision-tree" viewBox="0 0 520 220" width="100%"></svg>
+    <p class="cap">Fig 3: Decision Tree (Figure 1.0 from exam paper) — Uniform 3-bit binary tree</p>
+  </div>
+  <div class="col">
+    <div class="sbox">
+      <strong>Codeword Mapping from Figure 1.0:</strong>
+      <p>Following binary branches from root to leaves:</p>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4px; font-size:0.85rem;">
+        <div>\(x_1 \to\) <code>000</code> (\(l_1 = 3\))</div>
+        <div>\(x_2 \to\) <code>001</code> (\(l_2 = 3\))</div>
+        <div>\(x_3 \to\) <code>010</code> (\(l_3 = 3\))</div>
+        <div>\(x_4 \to\) <code>011</code> (\(l_4 = 3\))</div>
+        <div>\(x_5 \to\) <code>100</code> (\(l_5 = 3\))</div>
+        <div>\(x_6 \to\) <code>101</code> (\(l_6 = 3\))</div>
+        <div>\(x_7 \to\) <code>110</code> (\(l_7 = 3\))</div>
+        <div>\(x_8 \to\) <code>111</code> (\(l_8 = 3\))</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:10px;">
+<div class="col">
+  <div class="sbox">
+    <strong>i) Code Length:</strong>
+    <p>Since every symbol has a fixed length \(l_i = 3\text{ bits}\):</p>
+    $$\bar{L} = \sum_{i=1}^8 P_i \cdot l_i = 3 \sum_{i=1}^8 P_i = 3 \times 1.0 = \mathbf{3.000\text{ bits/symbol}}$$
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>ii) Code Efficiency:</strong>
+    <p>Source entropy of Table 1.0 (from Question 2b): \(H(X) = 2.6480\text{ bits/symbol}\).</p>
+    $$\eta = \frac{H(X)}{\bar{L}} \times 100\% = \frac{2.6480}{3.000} \times 100\% = \mathbf{88.27\%}$$
+    $$\text{Redundancy: } \gamma = 100\% - 88.27\% = \mathbf{11.73\%}$$
+  </div>
+</div>
+</div>
+
+<h3>Part 4 (b): DCS and Formatting Block Diagrams</h3>
+<div class="ref-note">
+  <strong>Cross-Reference:</strong> Digital Communication System (DCS) and Formatting block diagrams are identical to Question 4(a) from the ELT 4301 exam paper.
+  <br>
+  👉 <a class="reflink" href="ELT4301_Exam_Solutions.html" target="_blank">View Q4(a) in ELT4301_Exam_Solutions.html for In-Depth Explanations</a>
+</div>
+<div class="row">
+  <div class="col">
+    <svg id="q4-dcs-bd" viewBox="0 0 940 180" width="100%"></svg>
+    <p class="cap">Fig 4: Digital Communication System (DCS) Block Diagram</p>
+  </div>
+</div>
+<div class="row" style="margin-top:10px;">
+  <div class="col">
+    <svg id="q4-fmt-bd" viewBox="0 0 760 170" width="100%"></svg>
+    <p class="cap">Fig 5: Formatting Block Detail with Diverse Information Sources</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 5
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 5 (a) &amp; (b)</span>
+<h2>Sampling, Quantization, Mutual Information &amp; Code Classifications</h2>
+
+<h3>Part 5 (a)(i): Sampling Theory &amp; Sample-and-Hold Process</h3>
+<div class="sbox">
+  <strong>Nyquist-Shannon Sampling Theorem:</strong>
+  <p>A continuous-time band-limited signal \(x(t)\) with maximum frequency component \(f_{max} = W\text{ Hz}\) can be completely reconstructed from its samples without loss of information if sampled at a rate:</p>
+  $$f_s \ge 2 W$$
+  <p>where \(2W\) is the <strong>Nyquist rate</strong> and \(T_s = \frac{1}{f_s}\) is the <strong>Nyquist interval</strong>. If \(f_s < 2W\), spectral overlap known as <strong>aliasing</strong> occurs.</p>
+</div>
+
+<div class="row">
+  <div class="col">
+    <svg id="sh-diagram" viewBox="0 0 460 200" width="100%"></svg>
+    <p class="cap">Fig 6: Sample and Hold (S/H) Circuit and Flat-Top PAM Generation</p>
+  </div>
+  <div class="col">
+    <div class="sbox">
+      <strong>Sample and Hold (S/H) Operation:</strong>
+      <ol>
+        <li><strong>Sample Phase:</strong> An electronic switch (FET) closes during sampling pulse width \(\tau\). The holding capacitor \(C_h\) charges instantaneously to input voltage \(x(t)\).</li>
+        <li><strong>Hold Phase:</strong> Switch opens. Capacitor retains stored voltage across high input impedance buffer until next clock pulse.</li>
+        <li><strong>Output:</strong> Produces a flat-top staircase pulse sequence suitable for stable A/D conversion.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<h3>Part 5 (a)(ii): Quantization Process</h3>
+<div class="row">
+  <div class="col">
+    <svg id="quant-diagram" viewBox="0 0 460 210" width="100%"></svg>
+    <p class="cap">Fig 7: Uniform Mid-Tread Quantizer Characteristic &amp; Quantization Error</p>
+  </div>
+  <div class="col">
+    <div class="sbox">
+      <strong>Quantization Principles:</strong>
+      <ul>
+        <li>Converts continuous-amplitude samples into discrete representation levels \(L = 2^n\).</li>
+        <li><strong>Quantization Step Size:</strong> \(\Delta = \frac{V_{max} - V_{min}}{L}\).</li>
+        <li><strong>Quantization Error:</strong> \(e_q = x_q - x\), bounded within \([-\Delta/2, +\Delta/2]\).</li>
+        <li><strong>Quantization Noise Power:</strong> \(\sigma_q^2 = \frac{\Delta^2}{12}\).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>Part 5 (b)(i): Conditional Entropy, Mutual Information &amp; Venn Diagram</h3>
+<div class="row">
+<div class="col" style="flex:1.4;">
+  <div class="sbox">
+    <strong>Mathematical Expressions:</strong>
+    <ul>
+      <li><strong>Conditional Entropy (Equivocation):</strong>
+        $$H(X|Y) = -\sum_{j}\sum_{i} P(x_i, y_j)\log_2 P(x_i | y_j) = H(X, Y) - H(Y)$$
+        $$H(Y|X) = -\sum_{i}\sum_{j} P(x_i, y_j)\log_2 P(y_j | x_i) = H(X, Y) - H(X)$$
+      </li>
+      <li><strong>Average Mutual Information \(I(X; Y)\):</strong>
+        $$I(X; Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) = H(X) + H(Y) - H(X, Y)$$
+        $$I(X; Y) = \sum_{i}\sum_{j} P(x_i, y_j)\log_2\left(\frac{P(x_i, y_j)}{P(x_i)P(y_j)}\right)$$
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col">
+  <svg id="venn-diagram" viewBox="0 0 380 200" width="100%"></svg>
+  <p class="cap">Fig 8: Information Venn Diagram in \((X, Y)\) Space</p>
+</div>
+</div>
+
+<h3>Part 5 (b)(ii): Classification of Source Codes in Table 3.0</h3>
+<table>
+<tr>
+  <th>Code</th>
+  <th>Codewords \(\{x_1, x_2, x_3, x_4\}\)</th>
+  <th>Distinct?</th>
+  <th>Uniquely Decodable?</th>
+  <th>Prefix Condition (Instantaneous)?</th>
+  <th>Justification &amp; Ambiguity Test</th>
+</tr>
+<tr>
+  <td><strong>Code 1</strong></td>
+  <td><code>{0, 1, 11, 11}</code></td>
+  <td><span class="badge-no">Not Distinct</span></td>
+  <td><span class="badge-no">Not UD</span></td>
+  <td><span class="badge-no">No</span></td>
+  <td>Non-singular: Symbols \(x_3\) and \(x_4\) map to identical codeword <code>11</code>. Completely ambiguous upon receipt.</td>
+</tr>
+<tr>
+  <td><strong>Code 2</strong></td>
+  <td><code>{0, 1, 00, 10}</code></td>
+  <td><span class="badge-yes">Distinct</span></td>
+  <td><span class="badge-no">Not UD</span></td>
+  <td><span class="badge-no">No</span></td>
+  <td>Ambiguous sequences exist: Bitstream <code>00</code> can decode as \(x_3\) or \(x_1 x_1\); <code>10</code> can decode as \(x_4\) or \(x_2 x_1\).</td>
+</tr>
+<tr>
+  <td><strong>Code 3</strong></td>
+  <td><code>{00, 01, 11, 10}</code></td>
+  <td><span class="badge-yes">Distinct</span></td>
+  <td><span class="badge-yes">Uniquely Decodable</span></td>
+  <td><span class="badge-yes">Yes</span></td>
+  <td>Fixed-length block code (\(l = 2\)). No codeword is a prefix of another; decodable instantaneously.</td>
+</tr>
+<tr>
+  <td><strong>Code 4</strong></td>
+  <td><code>{0, 01, 011, 0111}</code></td>
+  <td><span class="badge-yes">Distinct</span></td>
+  <td><span class="badge-yes">Uniquely Decodable</span></td>
+  <td><span class="badge-no">No</span></td>
+  <td>Satisfies Sardinas-Patterson theorem: Every codeword starts with <code>0</code>, acting as a natural comma for unique decoding (though not instantaneous).</td>
+</tr>
+<tr>
+  <td><strong>Code 5</strong></td>
+  <td><code>{0, 10, 110, 1110}</code></td>
+  <td><span class="badge-yes">Distinct</span></td>
+  <td><span class="badge-yes">Uniquely Decodable</span></td>
+  <td><span class="badge-yes">Yes</span></td>
+  <td>Prefix-free (Instantaneous): No codeword is a prefix of any other. Terminates as soon as <code>0</code> is received.</td>
+</tr>
+<tr>
+  <td><strong>Code 6</strong></td>
+  <td><code>{0, 10, 110, 111}</code></td>
+  <td><span class="badge-yes">Distinct</span></td>
+  <td><span class="badge-yes">Uniquely Decodable</span></td>
+  <td><span class="badge-yes">Yes</span></td>
+  <td>Optimal binary prefix code (e.g., standard Huffman tree). Fully distinct and instantaneously decodable.</td>
+</tr>
+</table>
+</div>
+
+</div><!-- /wrap -->
+
+<!-- ══════════════════════════════════════════════════
+     SVG RENDERING SCRIPT
+     ══════════════════════════════════════════════════ -->
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, txt) {
+  const e = document.createElementNS(NS, tag);
+  Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+  if (txt !== undefined) e.textContent = txt;
+  return e;
+}
+function setupDefs(svg) {
+  const defs = document.createElementNS(NS, 'defs');
+  const mk = document.createElementNS(NS, 'marker');
+  mk.setAttribute('id', 'arr');
+  mk.setAttribute('markerWidth', '8');
+  mk.setAttribute('markerHeight', '6');
+  mk.setAttribute('refX', '7');
+  mk.setAttribute('refY', '3');
+  mk.setAttribute('orient', 'auto');
+  mk.appendChild(el('polygon', { points: '0 0 8 3 0 6', fill: '#607d8b' }));
+  defs.appendChild(mk);
+  svg.appendChild(defs);
+}
+
+// 1. Info and Entropy Curves
+(function(){
+  const svg = document.getElementById('info-entropy-curves');
+  setupDefs(svg);
+  svg.appendChild(el('rect', { width: '540', height: '240', fill: '#f8f9ff', rx: '6' }));
+
+  const axY = 195, left = 60, right = 490;
+  svg.appendChild(el('line', { x1: left, y1: axY, x2: right, y2: axY, stroke: '#37474f', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(el('line', { x1: left, y1: axY, x2: left, y2: 25, stroke: '#37474f', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+
+  svg.appendChild(el('text', { x: '275', y: '222', 'text-anchor': 'middle', 'font-size': '11', fill: '#37474f', 'font-weight': '600' }, 'Probability p'));
+  svg.appendChild(el('text', { x: '18', y: '110', 'text-anchor': 'middle', 'font-size': '11', fill: '#37474f', 'font-weight': '600', transform: 'rotate(-90 18 110)' }, 'Bits / Symbol'));
+
+  // Tick marks
+  [0, 0.25, 0.5, 0.75, 1.0].forEach(p => {
+    const x = left + p*(right - left - 30);
+    svg.appendChild(el('line', { x1: x, y1: axY, x2: x, y2: axY + 4, stroke: '#37474f', 'stroke-width': '1' }));
+    svg.appendChild(el('text', { x: x, y: axY + 16, 'text-anchor': 'middle', 'font-size': '9', fill: '#37474f' }, p.toString()));
+  });
+
+  // H(p) curve: concave bell curve peaking at p=0.5, H=1 (height 120px)
+  let dH = '';
+  for (let px = 0.005; px <= 0.995; px += 0.01) {
+    const x = left + px*(right - left - 30);
+    const h = -px*Math.log2(px) - (1-px)*Math.log2(1-px);
+    const y = axY - h*120;
+    dH += (px === 0.005 ? `M ${x} ${y} ` : `L ${x} ${y} `);
+  }
+  svg.appendChild(el('path', { d: dH, fill: 'none', stroke: '#1565c0', 'stroke-width': '2.5' }));
+
+  // I(p) curve: -log2(p)
+  let dI = '';
+  for (let px = 0.08; px <= 1.0; px += 0.02) {
+    const x = left + px*(right - left - 30);
+    const iVal = -Math.log2(px);
+    const y = axY - iVal*40;
+    dI += (px === 0.08 ? `M ${x} ${y} ` : `L ${x} ${y} `);
+  }
+  svg.appendChild(el('path', { d: dI, fill: 'none', stroke: '#e53935', 'stroke-width': '2', 'stroke-dasharray': '5,3' }));
+
+  // Labels on curves
+  svg.appendChild(el('text', { x: '275', y: axY - 130, 'text-anchor': 'middle', fill: '#1565c0', 'font-size': '10', 'font-weight': 'bold' }, 'H(p) Max = 1 bit at p=0.5'));
+  svg.appendChild(el('text', { x: '160', y: axY - 95, 'text-anchor': 'middle', fill: '#e53935', 'font-size': '10', 'font-weight': 'bold' }, 'I(p) = -log2(p)'));
+})();
+
+// 2. BSC and BEC Diagrams
+(function(){
+  function drawChannel(id, isBEC) {
+    const svg = document.getElementById(id);
+    setupDefs(svg);
+    svg.appendChild(el('rect', { width: '380', height: '180', fill: '#f8f9ff', rx: '6' }));
+
+    // Input nodes
+    svg.appendChild(el('circle', { cx: '70', cy: '50', r: '14', fill: '#1565c0' }));
+    svg.appendChild(el('text', { x: '70', y: '54', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, '0'));
+    svg.appendChild(el('circle', { cx: '70', cy: '130', r: '14', fill: '#1565c0' }));
+    svg.appendChild(el('text', { x: '70', y: '134', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, '1'));
+
+    if (!isBEC) {
+      // BSC output nodes
+      svg.appendChild(el('circle', { cx: '310', cy: '50', r: '14', fill: '#2e7d32' }));
+      svg.appendChild(el('text', { x: '310', y: '54', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, '0'));
+      svg.appendChild(el('circle', { cx: '310', cy: '130', r: '14', fill: '#2e7d32' }));
+      svg.appendChild(el('text', { x: '310', y: '134', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, '1'));
+
+      // Straight arrows (1-p)
+      svg.appendChild(el('line', { x1: 84, y1: 50, x2: 296, y2: 50, stroke: '#2e7d32', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '190', y: '42', 'text-anchor': 'middle', fill: '#2e7d32', 'font-size': '9', 'font-weight': 'bold' }, '1 - p'));
+      svg.appendChild(el('line', { x1: 84, y1: 130, x2: 296, y2: 130, stroke: '#2e7d32', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '190', y: '144', 'text-anchor': 'middle', fill: '#2e7d32', 'font-size': '9', 'font-weight': 'bold' }, '1 - p'));
+
+      // Cross arrows (p)
+      svg.appendChild(el('line', { x1: 84, y1: 56, x2: 296, y2: 124, stroke: '#e53935', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '235', y: '80', 'text-anchor': 'middle', fill: '#e53935', 'font-size': '9', 'font-weight': 'bold' }, 'p'));
+      svg.appendChild(el('line', { x1: 84, y1: 124, x2: 296, y2: 56, stroke: '#e53935', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '145', y: '80', 'text-anchor': 'middle', fill: '#e53935', 'font-size': '9', 'font-weight': 'bold' }, 'p'));
+    } else {
+      // BEC output nodes (0, e, 1)
+      svg.appendChild(el('circle', { cx: '310', cy: '40', r: '14', fill: '#2e7d32' }));
+      svg.appendChild(el('text', { x: '310', y: '44', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, '0'));
+      svg.appendChild(el('circle', { cx: '310', cy: '90', r: '14', fill: '#f57c00' }));
+      svg.appendChild(el('text', { x: '310', y: '94', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, 'e'));
+      svg.appendChild(el('circle', { cx: '310', cy: '140', r: '14', fill: '#2e7d32' }));
+      svg.appendChild(el('text', { x: '310', y: '144', 'text-anchor': 'middle', fill: '#fff', 'font-size': '11', 'font-weight': 'bold' }, '1'));
+
+      // Transitions
+      svg.appendChild(el('line', { x1: 84, y1: 50, x2: 296, y2: 40, stroke: '#2e7d32', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '190', y: '35', 'text-anchor': 'middle', fill: '#2e7d32', 'font-size': '9', 'font-weight': 'bold' }, '1 - ε'));
+      svg.appendChild(el('line', { x1: 84, y1: 130, x2: 296, y2: 140, stroke: '#2e7d32', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '190', y: '150', 'text-anchor': 'middle', fill: '#2e7d32', 'font-size': '9', 'font-weight': 'bold' }, '1 - ε'));
+
+      svg.appendChild(el('line', { x1: 84, y1: 54, x2: 296, y2: 86, stroke: '#f57c00', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '180', y: '68', 'text-anchor': 'middle', fill: '#f57c00', 'font-size': '9', 'font-weight': 'bold' }, 'ε'));
+      svg.appendChild(el('line', { x1: 84, y1: 126, x2: 296, y2: 94, stroke: '#f57c00', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+      svg.appendChild(el('text', { x: '180', y: '118', 'text-anchor': 'middle', fill: '#f57c00', 'font-size': '9', 'font-weight': 'bold' }, 'ε'));
+    }
+  }
+  drawChannel('bsc-diagram', false);
+  drawChannel('bec-diagram', true);
+})();
+
+// 3. Decision Tree Diagram
+(function(){
+  const svg = document.getElementById('decision-tree');
+  svg.appendChild(el('rect', { width: '520', height: '220', fill: '#f8f9ff', rx: '6' }));
+  svg.appendChild(el('text', { x: '260', y: '22', 'text-anchor': 'middle', fill: '#1a237e', 'font-size': '11', 'font-weight': 'bold' }, 'Decision Tree (Figure 1.0)'));
+
+  function line(x1, y1, x2, y2, lbl) {
+    svg.appendChild(el('line', { x1, y1, x2, y2, stroke: '#37474f', 'stroke-width': '1.4' }));
+    if (lbl) {
+      svg.appendChild(el('text', { x: (x1 + x2)/2 + (lbl==='0'?-8:8), y: (y1 + y2)/2 - 2, 'text-anchor': 'middle', fill: '#1565c0', 'font-size': '9', 'font-weight': 'bold' }, lbl));
+    }
+  }
+
+  // Root
+  const rX = 260, rY = 40;
+  // Level 1
+  const n0_X = 140, n1_X = 380, L1_Y = 85;
+  line(rX, rY, n0_X, L1_Y, '0');
+  line(rX, rY, n1_X, L1_Y, '1');
+
+  // Level 2
+  const xs = [80, 200, 320, 440], L2_Y = 135;
+  line(n0_X, L1_Y, xs[0], L2_Y, '0');
+  line(n0_X, L1_Y, xs[1], L2_Y, '1');
+  line(n1_X, L1_Y, xs[2], L2_Y, '0');
+  line(n1_X, L1_Y, xs[3], L2_Y, '1');
+
+  // Level 3 (leaves x1 to x8)
+  const lvs = [
+    { x: 50, code: '000', s: 'x1' }, { x: 110, code: '001', s: 'x2' },
+    { x: 170, code: '010', s: 'x3' }, { x: 230, code: '011', s: 'x4' },
+    { x: 290, code: '100', s: 'x5' }, { x: 350, code: '101', s: 'x6' },
+    { x: 410, code: '110', s: 'x7' }, { x: 470, code: '111', s: 'x8' },
+  ];
+  lvs.forEach((lv, i) => {
+    const parentX = xs[Math.floor(i/2)];
+    line(parentX, L2_Y, lv.x, 175, i%2===0?'0':'1');
+    svg.appendChild(el('text', { x: lv.x, y: '190', 'text-anchor': 'middle', fill: '#0d47a1', 'font-size': '8.5', 'font-weight': 'bold' }, lv.code));
+    svg.appendChild(el('text', { x: lv.x, y: '205', 'text-anchor': 'middle', fill: '#37474f', 'font-size': '9', 'font-weight': 'bold' }, lv.s));
+  });
+})();
+
+// 4. Sample and Hold Diagram
+(function(){
+  const svg = document.getElementById('sh-diagram');
+  setupDefs(svg);
+  svg.appendChild(el('rect', { width: '460', height: '200', fill: '#f8f9ff', rx: '6' }));
+  svg.appendChild(el('text', { x: '230', y: '22', 'text-anchor': 'middle', fill: '#1a237e', 'font-size': '11', 'font-weight': 'bold' }, 'Sample & Hold Waveforms & Operation'));
+
+  const midY = 110;
+  // Analog input curve
+  svg.appendChild(el('path', { d: 'M 30 110 Q 90 40 160 100 T 300 120 T 430 80', fill: 'none', stroke: '#1565c0', 'stroke-width': '2' }));
+  svg.appendChild(el('text', { x: '435', y: '80', fill: '#1565c0', 'font-size': '9', 'font-weight': 'bold' }, 'x(t)'));
+
+  // Flat-top S/H stairs
+  const steps = [
+    { x: 40, w: 45, y: 100 }, { x: 85, w: 45, y: 65 }, { x: 130, w: 45, y: 75 },
+    { x: 175, w: 45, y: 110 }, { x: 220, w: 45, y: 125 }, { x: 265, w: 45, y: 120 },
+    { x: 310, w: 45, y: 95 }, { x: 355, w: 45, y: 82 }
+  ];
+  steps.forEach(s => {
+    svg.appendChild(el('rect', { x: s.x, y: s.y, width: s.w, height: 170 - s.y, fill: 'rgba(239, 108, 0, 0.25)', stroke: '#e65100', 'stroke-width': '1.5' }));
+  });
+  svg.appendChild(el('text', { x: '240', y: '185', 'text-anchor': 'middle', fill: '#e65100', 'font-size': '9', 'font-weight': 'bold' }, 'Flat-Top PAM Held Output'));
+})();
+
+// 5. Quantizer Diagram
+(function(){
+  const svg = document.getElementById('quant-diagram');
+  setupDefs(svg);
+  svg.appendChild(el('rect', { width: '460', height: '210', fill: '#f8f9ff', rx: '6' }));
+  svg.appendChild(el('text', { x: '230', y: '20', 'text-anchor': 'middle', fill: '#1a237e', 'font-size': '11', 'font-weight': 'bold' }, 'Quantizer Staircase Characteristic'));
+
+  const cX = 230, cY = 115;
+  // Axes
+  svg.appendChild(el('line', { x1: 50, y1: cY, x2: 410, y2: cY, stroke: '#37474f', 'stroke-width': '1.2', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(el('line', { x1: cX, y1: 190, x2: cX, y2: 30, stroke: '#37474f', 'stroke-width': '1.2', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(el('text', { x: '400', y: cY + 15, fill: '#37474f', 'font-size': '9' }, 'Input x'));
+  svg.appendChild(el('text', { x: cX + 10, y: '40', fill: '#37474f', 'font-size': '9' }, 'Output xq'));
+
+  // Staircase
+  const pts = [
+    { x1: 110, y1: 175, x2: 150, y2: 175 },
+    { x1: 150, y1: 145, x2: 190, y2: 145 },
+    { x1: 190, y1: 115, x2: 270, y2: 115 },
+    { x1: 270, y1: 85, x2: 310, y2: 85 },
+    { x1: 310, y1: 55, x2: 350, y2: 55 }
+  ];
+  pts.forEach(p => {
+    svg.appendChild(el('line', { x1: p.x1, y1: p.y1, x2: p.x2, y2: p.y2, stroke: '#1565c0', 'stroke-width': '2.2' }));
+  });
+  // Vertical riser connections
+  for (let i = 0; i < pts.length - 1; i++) {
+    svg.appendChild(el('line', { x1: pts[i].x2, y1: pts[i].y1, x2: pts[i+1].x1, y2: pts[i+1].y1, stroke: '#1565c0', 'stroke-width': '1', 'stroke-dasharray': '2,2' }));
+  }
+  svg.appendChild(el('text', { x: '290', y: '102', fill: '#e53935', 'font-size': '8.5', 'font-weight': 'bold' }, 'Step Δ'));
+})();
+
+// 6. Venn Diagram
+(function(){
+  const svg = document.getElementById('venn-diagram');
+  svg.appendChild(el('rect', { width: '380', height: '200', fill: '#f8f9ff', rx: '6' }));
+  svg.appendChild(el('text', { x: '190', y: '22', 'text-anchor': 'middle', fill: '#1a237e', 'font-size': '11', 'font-weight': 'bold' }, 'Mutual Information Venn Diagram'));
+
+  // Left circle H(X)
+  svg.appendChild(el('circle', { cx: '145', cy: '105', r: '65', fill: 'rgba(21, 101, 192, 0.35)', stroke: '#1565c0', 'stroke-width': '2' }));
+  // Right circle H(Y)
+  svg.appendChild(el('circle', { cx: '235', cy: '105', r: '65', fill: 'rgba(46, 125, 50, 0.35)', stroke: '#2e7d32', 'stroke-width': '2' }));
+
+  // Labels
+  svg.appendChild(el('text', { x: '110', y: '105', 'text-anchor': 'middle', fill: '#0d47a1', 'font-size': '10', 'font-weight': 'bold' }, 'H(X|Y)'));
+  svg.appendChild(el('text', { x: '190', y: '105', 'text-anchor': 'middle', fill: '#b71c1c', 'font-size': '11', 'font-weight': 'bold' }, 'I(X; Y)'));
+  svg.appendChild(el('text', { x: '270', y: '105', 'text-anchor': 'middle', fill: '#1b5e20', 'font-size': '10', 'font-weight': 'bold' }, 'H(Y|X)'));
+
+  svg.appendChild(el('text', { x: '145', y: '185', 'text-anchor': 'middle', fill: '#1565c0', 'font-size': '9.5', 'font-weight': 'bold' }, 'H(X)'));
+  svg.appendChild(el('text', { x: '235', y: '185', 'text-anchor': 'middle', fill: '#2e7d32', 'font-size': '9.5', 'font-weight': 'bold' }, 'H(Y)'));
+  svg.appendChild(el('text', { x: '190', y: '38', 'text-anchor': 'middle', fill: '#37474f', 'font-size': '9', 'font-style': 'italic' }, 'Total Union = H(X, Y)'));
+})();
+
+// 7. Reuse DCS & Formatting Diagrams for Q4b
+(function(){
+  // DCS
+  const svg = document.getElementById('q4-dcs-bd');
+  setupDefs(svg);
+  svg.appendChild(el('rect', { width: '940', height: '180', fill: '#f8f9ff', rx: '6' }));
+  const blocks = [
+    { col: '#37474f', l: ['Info.', 'Source'] },
+    { col: '#1565c0', l: ['Source', 'Encoder'] },
+    { col: '#283593', l: ['Channel', 'Encoder'] },
+    { col: '#4a148c', l: ['Digital', 'Modulator'] },
+    { col: '#c2185b', l: ['Channel', '(Noise)'] },
+    { col: '#4a148c', l: ['Digital', 'Demod.'] },
+    { col: '#283593', l: ['Channel', 'Decoder'] },
+    { col: '#1565c0', l: ['Source', 'Decoder'] },
+    { col: '#37474f', l: ['Output', 'Sink'] },
+  ];
+  const bw = 85, bh = 50, gap = 15, y0 = 60;
+  const boxes = [];
+  blocks.forEach((b, i) => {
+    const x = 20 + i*(bw + gap);
+    const g = document.createElementNS(NS, 'g');
+    g.appendChild(el('rect', { x, y: y0, width: bw, height: bh, rx: '5', fill: b.col }));
+    b.l.forEach((txt, ti) => {
+      g.appendChild(el('text', { x: x + bw/2, y: y0 + bh/2 - (b.l.length-1)*6 + ti*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '8.5', 'font-weight': '600' }, txt));
+    });
+    svg.appendChild(g);
+    boxes.push({ r: x + bw, l: x, cy: y0 + bh/2 });
+  });
+  for (let i = 0; i < boxes.length - 1; i++) {
+    svg.appendChild(el('line', { x1: boxes[i].r, y1: boxes[i].cy, x2: boxes[i+1].l, y2: boxes[i+1].cy, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  }
+  svg.appendChild(el('text', { x: '215', y: '30', 'text-anchor': 'middle', 'font-size': '11', fill: '#1565c0', 'font-weight': 'bold' }, '─── TRANSMITTER ───'));
+  svg.appendChild(el('text', { x: '725', y: '30', 'text-anchor': 'middle', 'font-size': '11', fill: '#283593', 'font-weight': 'bold' }, '─── RECEIVER ───'));
+
+  // Formatting Block
+  const fsvg = document.getElementById('q4-fmt-bd');
+  setupDefs(fsvg);
+  fsvg.appendChild(el('rect', { width: '760', height: '170', fill: '#f8f9ff', rx: '6' }));
+  function box(x, y, w, h, col, textLines) {
+    const g = document.createElementNS(NS, 'g');
+    g.appendChild(el('rect', { x, y, width: w, height: h, rx: '5', fill: col }));
+    textLines.forEach((t, i) => {
+      g.appendChild(el('text', { x: x + w/2, y: y + h/2 - (textLines.length - 1)*6 + i*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '8.5', 'font-weight': '600' }, t));
+    });
+    fsvg.appendChild(g);
+    return { r: x + w, l: x, cy: y + h/2 };
+  }
+  const s1 = box(15, 20, 95, 36, '#455a64', ['Analog Voice/Vid']);
+  const s2 = box(15, 68, 95, 36, '#455a64', ['Textual Data']);
+  const s3 = box(15, 116, 95, 36, '#455a64', ['Binary Stream']);
+  const smp = box(160, 20, 85, 36, '#00695c', ['Sampler', '(Nyquist fs)']);
+  const qnt = box(280, 20, 85, 36, '#00695c', ['Quantizer', '(L levels)']);
+  const enc = box(400, 20, 85, 36, '#00695c', ['Bit Encoder', '(PCM)']);
+  const mux = box(540, 45, 75, 75, '#1a237e', ['Source /', 'Data MUX']);
+  const out = box(660, 60, 85, 45, '#2e7d32', ['Binary Bit', 'Stream {bn}']);
+
+  fsvg.appendChild(el('line', { x1: s1.r, y1: s1.cy, x2: smp.l, y2: smp.cy, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  fsvg.appendChild(el('line', { x1: smp.r, y1: smp.cy, x2: qnt.l, y2: qnt.cy, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  fsvg.appendChild(el('line', { x1: qnt.r, y1: qnt.cy, x2: enc.l, y2: enc.cy, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  fsvg.appendChild(el('line', { x1: enc.r, y1: enc.cy, x2: mux.l, y2: 55, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  fsvg.appendChild(el('line', { x1: s2.r, y1: s2.cy, x2: mux.l, y2: 82, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  fsvg.appendChild(el('line', { x1: s3.r, y1: s3.cy, x2: mux.l, y2: 110, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  fsvg.appendChild(el('line', { x1: mux.r, y1: 82, x2: out.l, y2: 82, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+})();
+</script>
+</body>
+</html>

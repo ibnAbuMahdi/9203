@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELT 4301 – Exam Solutions</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#eceff1;color:#263238;padding:16px;font-size:14px;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto}
+header{background:linear-gradient(135deg,#1a237e,#0d47a1);color:#fff;padding:22px 28px;border-radius:10px;margin-bottom:20px;text-align:center}
+header h1{font-size:1.4rem}
+header p{font-size:.85rem;opacity:.85;margin-top:4px}
+.nav-bar{background:#fff;border-radius:8px;padding:12px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.08);flex-wrap:wrap;gap:10px}
+.reflink{display:inline-flex;align-items:center;gap:6px;background:#e8eaf6;border:1px solid #9fa8da;border-radius:6px;padding:7px 14px;text-decoration:none;color:#283593;font-size:.85rem;font-weight:600;transition:background 0.2s}
+.reflink:hover{background:#c5cae9}
+.card{background:#fff;border-radius:10px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+.ql{display:inline-block;background:#1a237e;color:#fff;padding:3px 14px;border-radius:20px;font-size:.78rem;font-weight:700;margin-bottom:10px}
+.card h2{font-size:1.1rem;color:#1a237e;margin-bottom:12px;border-bottom:2px solid #e8eaf6;padding-bottom:6px}
+.card h3{font-size:.95rem;color:#283593;margin:14px 0 6px}
+.eqbox{background:#e8eaf6;border-left:4px solid #3f51b5;padding:10px 18px;margin:10px 0;border-radius:0 6px 6px 0;overflow-x:auto}
+.sbox{background:#f3f4ff;border:1px solid #c5cae9;padding:12px 16px;border-radius:6px;margin:8px 0}
+.abox{background:#fff8e1;border-left:4px solid #ff8f00;padding:12px 16px;border-radius:0 6px 6px 0;margin:10px 0;line-height:2}
+.ref-note{background:#e8f5e9;border-left:4px solid #43a047;padding:12px 16px;border-radius:0 6px 6px 0;margin:10px 0;font-size:.92rem}
+table{border-collapse:collapse;width:100%;font-size:.85rem;margin:12px 0}
+th{background:#283593;color:#fff;padding:9px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top}
+tr:nth-child(even) td{background:#f8f9fa}
+.row{display:flex;gap:18px;flex-wrap:wrap}
+.col{flex:1;min-width:260px}
+.cap{text-align:center;font-size:.75rem;color:#78909c;margin-top:5px}
+p{margin-bottom:8px}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>ELT 4301: Electronic Communication Systems</h1>
+  <p>Comprehensive Solutions for Examination Questions (X1 &amp; X2 Papers)</p>
+  <p style="font-size:0.75rem; opacity:0.75; margin-top:2px;">Department of Physics | Bayero University, Kano</p>
+</header>
+
+<div class="nav-bar">
+  <div><strong>Cross-Course References:</strong> Direct links to related test and postgraduate papers:</div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+    <a class="reflink" href="ELT4301_CA_Solutions.html" target="_blank">📄 View ELT 4301 C.A. Solutions</a>
+    <a class="reflink" href="ELT8214_Exam_Solutions.html" target="_blank">📄 View ELT 8214 M.Sc. Solutions</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 1a
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 1 (a)</span>
+<h2>AM Power Proof, Sideband Derivation &amp; Frequency Spectrum</h2>
+
+<h3>1. Proof of AM Total Power: \(P_t = P_c\left(1 + \frac{m^2}{2}\right)\)</h3>
+<p>A standard Double-Sideband Full-Carrier (DSB-FC) AM signal modulated by a single sinusoidal tone is expressed as:</p>
+<div class="eqbox">
+$$s(t) = A_c \left[1 + m \cos(2\pi f_m t)\right] \cos(2\pi f_c t)$$
+</div>
+<p>Expanding using trigonometric product identities \(\cos A \cos B = \frac{1}{2}[\cos(A+B) + \cos(A-B)]\):</p>
+<div class="eqbox">
+$$s(t) = \underbrace{A_c \cos(2\pi f_c t)}_{\text{Carrier}} + \underbrace{\frac{m A_c}{2} \cos(2\pi(f_c + f_m)t)}_{\text{Upper Sideband (USB)}} + \underbrace{\frac{m A_c}{2} \cos(2\pi(f_c - f_m)t)}_{\text{Lower Sideband (LSB)}}$$
+</div>
+<p>For any sinusoidal voltage waveform \(v(t) = V_p \cos(\omega t)\) dissipated across a load resistor \(R\), the average power is given by \(P = \frac{V_{rms}^2}{R} = \frac{V_p^2}{2R}\). Applying this to each spectral component:</p>
+<div class="eqbox">
+$$\text{Carrier Power: } P_c = \frac{A_c^2}{2R}$$
+$$\text{USB Power: } P_{USB} = \frac{(m A_c / 2)^2}{2R} = \frac{m^2 A_c^2}{8R} = \frac{m^2}{4} \left(\frac{A_c^2}{2R}\right) = \frac{m^2 P_c}{4}$$
+$$\text{LSB Power: } P_{LSB} = \frac{(m A_c / 2)^2}{2R} = \frac{m^2 A_c^2}{8R} = \frac{m^2 P_c}{4}$$
+</div>
+<p>The total transmitted power \(P_t\) is the sum of the powers of all independent frequency components:</p>
+<div class="eqbox">
+$$P_t = P_c + P_{USB} + P_{LSB} = P_c + \frac{m^2 P_c}{4} + \frac{m^2 P_c}{4} = P_c + \frac{m^2 P_c}{2} = \boxed{P_c \left(1 + \frac{m^2}{2}\right)}$$
+</div>
+<p>This completes the proof. \(\blacksquare\)</p>
+
+<h3>2. Mathematical Form of LSB and USB as a Function of \(P_c\) and Modulation Depth \(m\)</h3>
+<p>From the definition of carrier power \(P_c = \frac{A_c^2}{2R}\), the peak carrier amplitude is \(A_c = \sqrt{2 P_c R}\). Substituting this into the time-domain expressions:</p>
+<div class="eqbox">
+$$\text{Peak amplitude of each sideband: } A_{SB} = \frac{m A_c}{2} = \frac{m \sqrt{2 P_c R}}{2} = m \sqrt{\frac{P_c R}{2}}$$
+</div>
+<p>Hence, the instantaneous equations for the sidebands are:</p>
+<div class="eqbox">
+$$s_{USB}(t) = m \sqrt{\frac{P_c R}{2}} \cos(2\pi (f_c + f_m)t)$$
+$$s_{LSB}(t) = m \sqrt{\frac{P_c R}{2}} \cos(2\pi (f_c - f_m)t)$$
+</div>
+<p>And their power representation in terms of \(P_c\) and \(m\) is:</p>
+<div class="eqbox">
+$$P_{USB} = P_{LSB} = \frac{m^2 P_c}{4}$$
+</div>
+
+<h3>3. Frequency-Domain Representation of the AM Signal</h3>
+<div class="row">
+  <div class="col" style="flex:1.6">
+    <svg id="amspec" viewBox="0 0 540 220" width="100%"></svg>
+    <p class="cap">Fig 1: Double-Sided/Positive Amplitude Spectrum of AM Signal</p>
+  </div>
+  <div class="col" style="min-width:240px">
+    <div class="sbox">
+      <strong>Spectral Characteristics:</strong>
+      <ul style="margin-top:6px;">
+        <li><strong>Carrier component:</strong> Frequency \(f_c\), peak voltage \(A_c\) (or spectral line height \(A_c/2\)).</li>
+        <li><strong>Upper Sideband (USB):</strong> Frequency \(f_c + f_m\), peak voltage \(\frac{m A_c}{2}\).</li>
+        <li><strong>Lower Sideband (LSB):</strong> Frequency \(f_c - f_m\), peak voltage \(\frac{m A_c}{2}\).</li>
+        <li><strong>Total Transmission Bandwidth:</strong>
+          $$BW = (f_c + f_m) - (f_c - f_m) = 2 f_m$$
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 1b
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 1 (b)</span>
+<h2>Generation of SSB and DSB Signals (Filter &amp; Phase Methods)</h2>
+
+<h3>1. DSB Generation</h3>
+<p>Double Sideband Suppressed Carrier (DSB-SC) is generated by multiplying the message signal \(m(t)\) with the RF carrier \(c(t) = A_c \cos(2\pi f_c t)\) using a <strong>Balanced Modulator</strong>:</p>
+<div class="eqbox">
+$$s_{\text{DSB-SC}}(t) = m(t) \cdot c(t) = A_m \cos(2\pi f_m t) \cdot A_c \cos(2\pi f_c t) = \frac{A_c A_m}{2} \cos(2\pi(f_c+f_m)t) + \frac{A_c A_m}{2} \cos(2\pi(f_c-f_m)t)$$
+</div>
+
+<div class="row" style="margin-top:10px;">
+<div class="col">
+<h3>Method (i): Filter Method for SSB</h3>
+<svg id="filter-bd" viewBox="0 0 480 180" width="100%"></svg>
+<p class="cap">Fig 2a: Filter Method Block Diagram</p>
+<div class="sbox" style="font-size:0.88rem;">
+  <strong>Operation:</strong>
+  <ol>
+    <li>The message signal \(m(t)\) and carrier \(A_c\cos(2\pi f_c t)\) are applied to a <strong>Balanced Modulator</strong> to suppress the carrier and yield DSB-SC.</li>
+    <li>The DSB-SC signal is passed through a high-Q <strong>Sideband Filter</strong> (Band-Pass Filter):
+      <ul>
+        <li>Passing frequencies above \(f_c\) yields <strong>USB</strong>: \(s(t) = \frac{A_c A_m}{2}\cos(2\pi(f_c+f_m)t)\).</li>
+        <li>Passing frequencies below \(f_c\) yields <strong>LSB</strong>: \(s(t) = \frac{A_c A_m}{2}\cos(2\pi(f_c-f_m)t)\).</li>
+      </ul>
+    </li>
+  </ol>
+  <strong>Limitation:</strong> Requires extremely sharp filter roll-off, difficult to achieve at very high carrier frequencies without multi-stage frequency up-conversion.
+</div>
+</div>
+
+<div class="col">
+<h3>Method (ii): Phase-Shift Method (Hartley Modulator)</h3>
+<svg id="phase-bd" viewBox="0 0 480 210" width="100%"></svg>
+<p class="cap">Fig 2b: Phase-Shift (Hartley) Method Block Diagram</p>
+<div class="sbox" style="font-size:0.88rem;">
+  <strong>Operation:</strong>
+  <ol>
+    <li>The baseband signal \(m(t) = A_m \cos(\omega_m t)\) is fed directly to Balanced Modulator 1, and through a \(90^\circ\) phase shifter (Hilbert transform) to produce \(\hat{m}(t) = A_m \sin(\omega_m t)\) into Balanced Modulator 2.</li>
+    <li>The carrier oscillator output \(A_c\cos(\omega_c t)\) drives Modulator 1 directly and passes through a \(-90^\circ\) phase shifter to produce \(A_c\sin(\omega_c t)\) for Modulator 2.</li>
+    <li>Outputs of the two modulators:
+      $$v_1(t) = A_c A_m \cos(\omega_c t) \cos(\omega_m t) = \frac{A_c A_m}{2}[\cos(\omega_c+\omega_m)t + \cos(\omega_c-\omega_m)t]$$
+      $$v_2(t) = A_c A_m \sin(\omega_c t) \sin(\omega_m t) = \frac{A_c A_m}{2}[\cos(\omega_c-\omega_m)t - \cos(\omega_c+\omega_m)t]$$
+    </li>
+    <li>Summing / subtracting produces:
+      $$\text{USB: } v_1(t) - v_2(t) = A_c A_m \cos(\omega_c + \omega_m)t$$
+      $$\text{LSB: } v_1(t) + v_2(t) = A_c A_m \cos(\omega_c - \omega_m)t$$
+    </li>
+  </ol>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 2
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 2 (a) &amp; (b)</span>
+<h2>Cellular Network Topology, Cluster, Generations &amp; Acronyms</h2>
+
+<div class="ref-note">
+  <strong>DRY Reference:</strong> The complete network topology diagram (MS, BTS, BSC, MSC, HLR, VLR, AuC, EIR, GMSC, PSTN) and the 7-cell hexagonal cluster diagram (cells A–G) are illustrated in the C.A. solutions file.
+  <br>
+  👉 <a class="reflink" href="ELT4301_CA_Solutions.html" target="_blank">View Q1(a) in ELT4301_CA_Solutions.html for Diagrams &amp; BSS Subsystem Details</a>
+</div>
+
+<h3>Mobile Cellular Generations and How They Differ</h3>
+<table>
+<tr>
+  <th>Generation</th>
+  <th>Core Technology</th>
+  <th>Modulation &amp; Access</th>
+  <th>Bandwidth &amp; Data Rate</th>
+  <th>Key Distinguishing Features</th>
+</tr>
+<tr>
+  <td><strong>1G (1980s)</strong></td>
+  <td>AMPS, TACS, NMT</td>
+  <td>Analog FM, FDMA</td>
+  <td>Voice only (~kbps equivalent)</td>
+  <td>First wireless voice network; completely analog; no encryption; poor battery life; no roaming.</td>
+</tr>
+<tr>
+  <td><strong>2G (1990s)</strong></td>
+  <td>GSM, IS-95 (cdmaOne)</td>
+  <td>Digital GMSK/QPSK, TDMA/CDMA</td>
+  <td>9.6 – 64 kbps</td>
+  <td>First digital cellular systems; introduced SMS text messaging, SIM cards, encryption, and basic digital voice.</td>
+</tr>
+<tr>
+  <td><strong>2.5G / 2.75G</strong></td>
+  <td>GPRS, EDGE</td>
+  <td>8-PSK, TDMA packet switching</td>
+  <td>144 – 384 kbps</td>
+  <td>Packet-switched overlay on 2G core; enabled basic internet browsing, MMS, and email on mobile.</td>
+</tr>
+<tr>
+  <td><strong>3G (2000s)</strong></td>
+  <td>UMTS, WCDMA, CDMA2000</td>
+  <td>QPSK/16-QAM, Wideband CDMA</td>
+  <td>384 kbps – 42 Mbps (HSPA+)</td>
+  <td>High-speed mobile broadband; enabled video calling, streaming multimedia, app stores, and smartphone revolution.</td>
+</tr>
+<tr>
+  <td><strong>4G (2010s)</strong></td>
+  <td>LTE, LTE-Advanced</td>
+  <td>OFDMA (DL), SC-FDMA (UL), 64-QAM</td>
+  <td>100 Mbps – 1 Gbps</td>
+  <td>All-IP packet switched network (no legacy circuit switching; VoLTE); MIMO antenna tech; HD streaming and low latency.</td>
+</tr>
+<tr>
+  <td><strong>5G (2020s)</strong></td>
+  <td>5G NR (New Radio)</td>
+  <td>Scalable OFDM, 256-QAM, mmWave</td>
+  <td>1 Gbps – 20 Gbps</td>
+  <td>Three distinct use cases: eMBB (extreme broadband), URLLC (ultra-reliable low latency &lt;1ms), and mMTC (massive IoT). Uses beamforming and network slicing.</td>
+</tr>
+</table>
+
+<h3>Acronyms List (Question 2b)</h3>
+<div class="ref-note" style="margin-bottom:10px;">
+  Acronyms overlapping with the C.A. are marked with reference. Additional acronyms required in this paper (<strong>MU, QPSK, PCM, ITU</strong>) are fully detailed below.
+</div>
+<table>
+<tr><th>Acronym</th><th>Full Meaning</th><th>Detailed Function / Context</th></tr>
+<tr><td><strong>BTS / BS</strong></td><td>Base Transceiver Station / Base Station</td><td>Cellular RF transceivers providing wireless coverage to a cell. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>BSC</strong></td><td>Base Station Controller</td><td>Manages radio resources and handovers for multiple BTSs. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>MSC</strong></td><td>Mobile Switching Center</td><td>Telephone exchange controlling call setup, routing, and subscriber billing. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>HLR</strong></td><td>Home Location Register</td><td>Master database of permanent subscriber profiles, rights, and locations. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>VLR</strong></td><td>Visitor Location Register</td><td>Temporary database for roaming mobile stations within an MSC area. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>SNR</strong></td><td>Signal-to-Noise Ratio</td><td>Ratio of signal power to background noise power (\(P_s/P_n\)). <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>PSTN</strong></td><td>Public Switched Telephone Network</td><td>Worldwide circuit-switched wired telephone network infrastructure. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>PLMN</strong></td><td>Public Land Mobile Network</td><td>Entire commercial wireless cellular network operated by a service provider. <a href="ELT4301_CA_Solutions.html">Ref CA Q2b</a></td></tr>
+<tr><td><strong>MU</strong></td><td>Mobile Unit</td><td>The subscriber handset/transceiver equipment operating in the mobile network.</td></tr>
+<tr><td><strong>UE</strong></td><td>User Equipment</td><td>3GPP cellular term (3G/4G/5G) for the mobile terminal containing ME and USIM.</td></tr>
+<tr><td><strong>ASK</strong></td><td>Amplitude Shift Keying</td><td>Digital modulation varying the amplitude of a sinusoidal carrier.</td></tr>
+<tr><td><strong>FSK</strong></td><td>Frequency Shift Keying</td><td>Digital modulation shifting between discrete carrier frequencies.</td></tr>
+<tr><td><strong>PSK</strong></td><td>Phase Shift Keying</td><td>Digital modulation shifting the carrier phase to represent digital symbols.</td></tr>
+<tr><td><strong>QPSK</strong></td><td>Quadrature Phase Shift Keying</td><td>Phase modulation utilizing 4 orthogonal phase shifts (\(0^\circ, 90^\circ, 180^\circ, 270^\circ\)) carrying 2 bits/symbol.</td></tr>
+<tr><td><strong>PCM</strong></td><td>Pulse Code Modulation</td><td>Method of converting analog signals to digital via Sampling, Quantization, and Encoding.</td></tr>
+<tr><td><strong>ITU</strong></td><td>International Telecommunication Union</td><td>United Nations specialized agency coordinating global telecom standards and spectrum allocation.</td></tr>
+<tr><td><strong>dBm</strong></td><td>Decibel-milliwatts</td><td>Logarithmic unit of power referenced to 1 milliwatt (\(10\log_{10}(P / 1\text{ mW})\)).</td></tr>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 3
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 3 (a) &amp; Part ii (SSB)</span>
+<h2>AM Power Calculations, Current Variations &amp; SSB PEP</h2>
+
+<h3>Part 3 (a): Current \(I_c = 7\text{ A}\), Modulation \(m = 90\% = 0.9\), Antenna Impedance \(R = 50\,\Omega\)</h3>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <strong>1. Carrier Power (\(P_c\)):</strong>
+    $$P_c = I_c^2 \cdot R = (7)^2 \times 50 = 49 \times 50 = \mathbf{2450\text{ W}}$$
+  </div>
+  <div class="sbox">
+    <strong>2. Total Power (\(P_t\)):</strong>
+    $$P_t = P_c\left(1 + \frac{m^2}{2}\right) = 2450 \left(1 + \frac{0.9^2}{2}\right) = 2450 (1 + 0.405) = 2450 \times 1.405 = \mathbf{3442.25\text{ W}}$$
+  </div>
+  <div class="sbox">
+    <strong>3. Power in Each Sideband (\(P_{USB} = P_{LSB}\)):</strong>
+    $$P_{USB} = P_{LSB} = \frac{m^2 P_c}{4} = \frac{(0.81) \times 2450}{4} = \frac{1984.5}{4} = \mathbf{496.125\text{ W}}$$
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>4. Powers in dB (referenced to 1 W):</strong>
+    $$P_c(\text{dBW}) = 10 \log_{10}(2450) = 10 \times 3.38917 = \mathbf{33.89\text{ dBW}}$$
+    $$P_t(\text{dBW}) = 10 \log_{10}(3442.25) = 10 \times 3.53684 = \mathbf{35.37\text{ dBW}}$$
+    $$P_{SB}(\text{dBW}) = 10 \log_{10}(496.125) = 10 \times 2.69559 = \mathbf{26.96\text{ dBW}}$$
+  </div>
+  <div class="sbox">
+    <strong>5. Powers in dBm (referenced to 1 mW = \(10^{-3}\text{ W}\)):</strong>
+    $$\text{Formula: } P(\text{dBm}) = P(\text{dBW}) + 30\text{ dB}$$
+    $$P_c(\text{dBm}) = 33.89 + 30 = \mathbf{63.89\text{ dBm}}$$
+    $$P_t(\text{dBm}) = 35.37 + 30 = \mathbf{65.37\text{ dBm}}$$
+    $$P_{SB}(\text{dBm}) = 26.96 + 30 = \mathbf{56.96\text{ dBm}}$$
+  </div>
+</div>
+</div>
+
+<h3>Transmitter Current Change: \(I_c = 7\text{ A}\) to \(I_t = 9\text{ A}\)</h3>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <p>The relation between total antenna current \(I_t\) and unmodulated carrier current \(I_c\) is:</p>
+    $$I_t = I_c \sqrt{1 + \frac{m^2}{2}}$$
+    $$\left(\frac{I_t}{I_c}\right)^2 = 1 + \frac{m^2}{2} \implies \left(\frac{9}{7}\right)^2 = 1 + \frac{m^2}{2}$$
+    $$\frac{81}{49} - 1 = \frac{m^2}{2} \implies \frac{32}{49} = \frac{m^2}{2} \implies m^2 = \frac{64}{49}$$
+    $$m = \sqrt{\frac{64}{49}} = \frac{8}{7} \approx \mathbf{1.1429}$$
+  </div>
+</div>
+<div class="col">
+  <div class="abox">
+    ✦ <strong>Modulation Coefficient:</strong> \(m = \frac{8}{7} \approx \mathbf{1.143}\)<br>
+    ✦ <strong>Percentage Modulation:</strong> \(\%m = 1.1429 \times 100\% = \mathbf{114.29\%}\)<br>
+    <em>Note: Because \(m > 1.0\), the transmitter is in an <strong>overmodulated</strong> condition, causing envelope distortion and adjacent channel interference (splatter).</em>
+  </div>
+</div>
+</div>
+
+<h3>Part (X2) ii: SSB Transmitter Peak Envelope Power (PEP) &amp; Average Power</h3>
+<p><strong>Given:</strong> Peak-to-peak voltage \(V_{pp} = 400\text{ V}\), Antenna load \(R = 75\,\Omega\).</p>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <strong>1. Peak Voltage:</strong>
+    $$V_{\text{peak}} = \frac{V_{pp}}{2} = \frac{400}{2} = 200\text{ V}$$
+  </div>
+  <div class="sbox">
+    <strong>2. Peak Envelope Power (PEP):</strong>
+    <p>PEP is the average power supplied during one radio frequency cycle at the crest of the modulation envelope:</p>
+    $$\text{PEP} = \frac{V_{peak}^2}{2 R} = \frac{(200)^2}{2 \times 75} = \frac{40000}{150} = \mathbf{266.67\text{ W}}$$
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>3. Average Power (\(P_{avg}\)):</strong>
+    <p>For a standard single continuous audio tone modulating an SSB transmitter, the envelope amplitude is constant over time, giving:</p>
+    $$P_{avg} = \text{PEP} = \mathbf{266.67\text{ W}}$$
+    <small><em>(Note: Under a standard two-tone test convention with two equal sine waves, \(P_{avg} = \frac{\text{PEP}}{2} = 133.33\text{ W}\). For single sinusoidal carrier: \(P_{avg} = 266.67\text{ W}\).)</em></small>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 4a
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 4 (a)</span>
+<h2>Digital Communication System (DCS) &amp; Formatting Block</h2>
+
+<div class="ref-note">
+  <strong>Cross-Course Note:</strong> This identical question also appears in postgraduate examination <strong>ELT 8214 (Question 4b)</strong> with application to Decision Tree source codes.
+  <br>
+  👉 <a class="reflink" href="ELT8214_Exam_Solutions.html" target="_blank">View Q4(b) in ELT8214_Exam_Solutions.html</a>
+</div>
+
+<h3>i) Block Diagram of a Digital Communication System (DCS)</h3>
+<svg id="dcs-bd" viewBox="0 0 940 190" width="100%"></svg>
+<p class="cap">Fig 3: End-to-End Block Diagram of a Digital Communication System</p>
+
+<h3>Formatting Block with Different Information Sources</h3>
+<svg id="fmt-bd" viewBox="0 0 760 180" width="100%"></svg>
+<p class="cap">Fig 4: Detailed Formatting Block Handling Analog, Discrete and Digital Sources</p>
+
+<h3>Explanation of Formatting Operations:</h3>
+<ul>
+  <li><strong>Analog Sources (Voice, Video):</strong> Must undergo formatting via Pulse Code Modulation (PCM):
+    <ol>
+      <li><em>Sampler:</em> Samples the continuous-time signal at or above the Nyquist rate (\(f_s \ge 2 W\)).</li>
+      <li><em>Quantizer:</em> Maps continuous amplitude samples into \(L = 2^n\) discrete amplitude levels.</li>
+      <li><em>Encoder:</em> Converts quantized levels into an \(n\)-bit binary code word.</li>
+    </ol>
+  </li>
+  <li><strong>Textual / Discrete Sources (Keyboard characters):</strong> Already discrete in amplitude, directly mapped via ASCII/Unicode character encoding.</li>
+  <li><strong>Binary Data Sources (Files):</strong> Require framing, parallel-to-serial conversion, or line coding.</li>
+</ul>
+
+<h3>ii) Three Prime Needs Motivating the Development/Evolution of DCS</h3>
+<ol>
+  <li><strong>Regenerative Repeaters &amp; Noise Immunity:</strong> Unlike analog systems where amplifier noise accumulates additively over distances, digital repeaters detect, re-time, and regenerate clean pulses, eliminating noise accumulation entirely.</li>
+  <li><strong>Error Detection and Correction Coding:</strong> Digital systems can introduce structured redundancy (Channel Coding like parity, Hamming, Reed-Solomon, LDPC) allowing receivers to automatically detect and correct transmission errors caused by noisy channels.</li>
+  <li><strong>Universal Integration &amp; Cryptographic Security:</strong> All diverse media (voice, video, text, sensor telemetry) are formatted into uniform binary bitstreams, allowing unified multiplexing, routing, digital storage, and unbreakable mathematical encryption (AES, RSA).</li>
+</ol>
+
+<h3>Three Digital Modulation Techniques</h3>
+<table>
+<tr><th>Modulation Acronym</th><th>Full Meaning</th><th>Operating Principle</th></tr>
+<tr><td><strong>ASK</strong></td><td>Amplitude Shift Keying</td><td>Carrier amplitude switches between discrete levels to represent binary '1' and '0' (e.g. OOK: Carrier ON for '1', OFF for '0').</td></tr>
+<tr><td><strong>FSK</strong></td><td>Frequency Shift Keying</td><td>Carrier frequency shifts between discrete frequencies \(f_1\) and \(f_2\) corresponding to binary '1' and '0'.</td></tr>
+<tr><td><strong>PSK / QPSK</strong></td><td>Phase Shift Keying / Quadrature PSK</td><td>Carrier phase shifts between discrete constellation points. In QPSK, 4 phases (\(45^\circ, 135^\circ, 225^\circ, 315^\circ\)) represent 2 bits per symbol.</td></tr>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 4b
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 4 (b)</span>
+<h2>Analog Communication System (ACS), Shannon Model &amp; Channel Allocation</h2>
+
+<h3>i) Block Diagrams: Analog Communication System vs General Model</h3>
+<div class="row">
+<div class="col">
+  <svg id="acs-bd" viewBox="0 0 540 140" width="100%"></svg>
+  <p class="cap">Fig 5: Analog Communication System (ACS) Block Diagram</p>
+</div>
+<div class="col">
+  <svg id="gen-bd" viewBox="0 0 540 140" width="100%"></svg>
+  <p class="cap">Fig 6: Shannon's General Model of a Communication System</p>
+</div>
+</div>
+
+<h3>ii) Available Stations in AM and FM Bands (ITU Regulations)</h3>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <strong>AM Broadcast Band (ITU Region 1 — Africa &amp; Europe):</strong>
+    <ul>
+      <li>Assigned Medium Wave (MW) Band: <strong>526.5 kHz to 1606.5 kHz</strong> (Usable: 531 kHz to 1602 kHz).</li>
+      <li>ITU Channel Spacing: <strong>9 kHz</strong> (10 kHz in ITU Region 2 / Americas).</li>
+      <li>Calculation:
+        $$N_{\text{AM}} = \frac{1606.5 - 526.5}{9} = \frac{1080\text{ kHz}}{9\text{ kHz}} = \mathbf{120\text{ Stations}}$$
+        <em>(Using usable carrier grid: \(\frac{1602 - 531}{9} + 1 = 120\) channels).</em>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>FM Broadcast Band (VHF Band II):</strong>
+    <ul>
+      <li>Assigned ITU Frequency Band: <strong>87.5 MHz to 108.0 MHz</strong>.</li>
+      <li>Total Bandwidth Available: \(108.0 - 87.5 = 20.5\text{ MHz} = 20,500\text{ kHz}\).</li>
+      <li>Standard ITU Channel Spacing: <strong>200 kHz (0.2 MHz)</strong>.</li>
+      <li>Calculation:
+        $$N_{\text{FM}} = \frac{20.5\text{ MHz}}{0.2\text{ MHz}} = \mathbf{102\text{ Stations}}$$
+        <em>(If using 100 kHz raster as in some ITU local plans: \(\frac{20.5}{0.1} = 205\) channels).</em>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<h3>Two Advantages and Disadvantages of an Analog Communication System (ACS)</h3>
+<table>
+<tr>
+  <th style="width:50%;">Advantages of ACS</th>
+  <th style="width:50%;">Disadvantages of ACS</th>
+</tr>
+<tr>
+  <td><strong>1. Circuit Simplicity &amp; Low Cost:</strong> Transmitters and receivers do not require analog-to-digital converters, complex digital DSP chips, or synchronization clocks, making hardware straightforward and inexpensive.</td>
+  <td><strong>1. Susceptibility to Noise &amp; Distortion:</strong> Analog signals are continuous; any noise, distortion, or crosstalk injected in the channel adds directly to the signal and cannot be removed without damaging information.</td>
+</tr>
+<tr>
+  <td><strong>2. Natural Audio Fidelity:</strong> Direct analog modulation (like wideband FM) does not suffer from quantization noise or digitization delay, providing natural continuous sound reproduction within channel bandwidth.</td>
+  <td><strong>2. Lack of Error Correction &amp; Encryption:</strong> Analog systems cannot implement mathematical channel error correction algorithms and are very difficult to encrypt securely compared to digital bitstreams.</td>
+</tr>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 5a
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 5 (a)</span>
+<h2>FM &amp; PM Equations, Bessel Expression &amp; Power Invariance</h2>
+
+<h3>Part 5 (a)(i): Derivation of FM and PM Mathematical Equations</h3>
+<div class="ref-note">
+  <strong>DRY Reference:</strong> Derivations for FM and PM signals from the general angle-modulated equation \(s(t) = A_c \cos[\theta_i(t)]\), definition of all parameters, and expressions for modulation indices (\(\beta_{FM} = \frac{\Delta f}{f_m} = \frac{k_f A_m}{f_m}\), \(\beta_{PM} = k_p A_m\)) are identical to C.A. Question 1(b).
+  <br>
+  👉 <a class="reflink" href="ELT4301_CA_Solutions.html" target="_blank">View Q1(b) in ELT4301_CA_Solutions.html for Complete Step-by-Step Derivation &amp; Parameter Table</a>
+</div>
+
+<h3>Part 5 (a)(ii): Simplified Bessel's Expression and Total Power</h3>
+<p>For a single-tone angle modulated signal \(s(t) = A_c \cos(2\pi f_c t + \beta \sin(2\pi f_m t))\), applying the Jacobi–Anger expansion expresses the signal as an infinite summation of Bessel functions of the first kind:</p>
+<div class="eqbox">
+$$\boxed{s(t) = A_c \sum_{n=-\infty}^{\infty} J_n(\beta) \cos\bigl[2\pi(f_c + n f_m)t\bigr]}$$
+</div>
+<p>where:</p>
+<ul>
+  <li>\(J_n(\beta)\) is the Bessel function of the first kind of order \(n\) with argument \(\beta\).</li>
+  <li>\(n = 0\) corresponds to the carrier component at \(f_c\) with amplitude \(A_c J_0(\beta)\).</li>
+  <li>\(n = \pm 1, \pm 2, \dots\) represent pairs of symmetric sidebands at \(f_c \pm n f_m\) with amplitudes \(A_c J_n(\beta)\).</li>
+</ul>
+
+<h4>Total Power Required to Transmit this Signal</h4>
+<p>The average power dissipated into load resistance \(R\) by each individual spectral component is:</p>
+<div class="eqbox">
+$$P_n = \frac{[A_c J_n(\beta)]^2}{2 R} = \frac{A_c^2}{2 R} J_n^2(\beta)$$
+</div>
+<p>Summing the power across all infinite spectral components from \(n = -\infty\) to \(\infty\):</p>
+<div class="eqbox">
+$$P_t = \sum_{n=-\infty}^{\infty} P_n = \frac{A_c^2}{2 R} \sum_{n=-\infty}^{\infty} J_n^2(\beta)$$
+</div>
+<p>By the fundamental Bessel identity (Parseval's identity for Bessel series), \(\displaystyle\sum_{n=-\infty}^{\infty} J_n^2(\beta) = 1\) for any real value of \(\beta\). Therefore:</p>
+<div class="eqbox">
+$$\boxed{P_t = \frac{A_c^2}{2 R} = P_c}$$
+</div>
+<div class="abox">
+  <strong>Key Principle:</strong> Frequency and phase modulation do not alter the signal amplitude. Total power in an angle-modulated wave is constant and entirely independent of modulation index \(\beta\). Modulation merely redistributes power between the carrier and sidebands.
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     QUESTION 5b
+     ══════════════════════════════════════════════════ -->
+<div class="card">
+<span class="ql">Question 5 (b)</span>
+<h2>FM Signal Analysis: \(v_{FM}(t) = 2000 \cos(2\pi \times 10^8 t + 2 \sin(\pi \times 10^4 t))\text{ V}\), \(R = 75\,\Omega\)</h2>
+
+<h3>Part 5 (b)(i): Extracting Signal Parameters</h3>
+<p>Standard sinusoidal FM equation:</p>
+<div class="eqbox">
+$$v(t) = A_c \cos\bigl(2\pi f_c t + \beta \sin(2\pi f_m t)\bigr)$$
+</div>
+<p>Comparing term by term with \(v_{FM}(t) = 2000 \cos\bigl(2\pi \cdot 10^8 t + 2 \sin(\pi \cdot 10^4 t)\bigr)\):</p>
+<div class="row">
+<div class="col">
+  <div class="sbox">
+    <strong>1. Carrier Peak Amplitude:</strong>
+    $$A_c = 2000\text{ V}$$
+    <strong>2. Carrier Frequency (\(f_c\)):</strong>
+    $$2\pi f_c = 2\pi \times 10^8 \implies \mathbf{f_c = 10^8\text{ Hz} = 100\text{ MHz}}$$
+    <strong>3. Modulating Frequency (\(f_m\)):</strong>
+    $$2\pi f_m = \pi \times 10^4 \implies \mathbf{f_m = \frac{10^4}{2} = 5000\text{ Hz} = 5\text{ kHz}}$$
+  </div>
+</div>
+<div class="col">
+  <div class="sbox">
+    <strong>4. Modulation Index (\(\beta\)):</strong>
+    $$\mathbf{\beta = 2}$$
+    <strong>5. Frequency Deviation (\(\Delta f\)):</strong>
+    $$\Delta f = \beta f_m = 2 \times 5\text{ kHz} = \mathbf{10\text{ kHz}}$$
+    <strong>6. Percentage Modulation:</strong>
+    <p>Using maximum standard broadcast FM deviation \(\Delta f_{max} = 75\text{ kHz}\):</p>
+    $$\% \text{Modulation} = \frac{\Delta f}{\Delta f_{max}} \times 100\% = \frac{10}{75} \times 100\% = \mathbf{13.33\%}$$
+  </div>
+</div>
+</div>
+
+<div class="sbox">
+  <strong>7. Transmitted Power (\(P_t\)):</strong>
+  $$P_t = \frac{A_c^2}{2 R} = \frac{(2000)^2}{2 \times 75} = \frac{4 \times 10^6}{150} = \frac{40000}{1.5} = \mathbf{26{,}666.67\text{ W} \approx 26.67\text{ kW}}$$
+</div>
+
+<h3>Part 5 (b)(ii): Bandwidth Calculations &amp; Sideband Powers (\(\Delta f = 10\text{ kHz}, f_m = 5\text{ kHz}, \beta = 2\))</h3>
+
+<div class="row">
+<div class="col">
+  <h3>1. Carson's Rule Bandwidth</h3>
+  <div class="eqbox">
+    $$BW_{\text{Carson}} = 2(\Delta f + f_m) = 2(10\text{ kHz} + 5\text{ kHz}) = 2(15\text{ kHz}) = \mathbf{30\text{ kHz}}$$
+  </div>
+  <p><em>Carson's rule captures ~98% of the total transmitted signal energy.</em></p>
+
+  <h3>2. Bessel's Method Bandwidth</h3>
+  <p>For modulation index \(\beta = 2\), the Bessel function values are:</p>
+  <table>
+    <tr><th>n</th><th>Sideband Frequency</th><th>\(J_n(2)\)</th><th>Significance (\(|J_n| \ge 0.01\))</th></tr>
+    <tr><td>0</td><td>\(f_c\) (Carrier)</td><td>0.2239</td><td>Significant</td></tr>
+    <tr><td>1</td><td>\(f_c \pm 5\text{ kHz}\)</td><td>0.5767</td><td>Significant (Largest)</td></tr>
+    <tr><td>2</td><td>\(f_c \pm 10\text{ kHz}\)</td><td>0.3528</td><td>Significant</td></tr>
+    <tr><td>3</td><td>\(f_c \pm 15\text{ kHz}\)</td><td>0.1289</td><td>Significant</td></tr>
+    <tr><td>4</td><td>\(f_c \pm 20\text{ kHz}\)</td><td>0.0340</td><td>Significant (Smallest)</td></tr>
+    <tr><td>5</td><td>\(f_c \pm 25\text{ kHz}\)</td><td>0.0070</td><td>Insignificant (&lt; 0.01)</td></tr>
+  </table>
+  <p>Number of significant sideband pairs \(n_{\max} = 4\). Therefore:</p>
+  <div class="eqbox">
+    $$BW_{\text{Bessel}} = 2 \cdot n_{\max} \cdot f_m = 2 \times 4 \times 5\text{ kHz} = \mathbf{40\text{ kHz}}$$
+  </div>
+</div>
+
+<div class="col">
+  <h3>3. Power in Largest and Smallest Sidebands</h3>
+  <p>Power in any single sideband component of order \(n\) is:</p>
+  <div class="eqbox">
+    $$P_n = J_n^2(\beta) \cdot P_t = J_n^2(2) \times 26{,}666.67\text{ W}$$
+  </div>
+
+  <div class="sbox">
+    <strong>Largest Sideband (\(n = 1\)):</strong>
+    $$J_1(2) = 0.5767$$
+    $$P_1 = (0.5767)^2 \times 26{,}666.67 = 0.33258 \times 26{,}666.67 = \mathbf{8{,}868.87\text{ W}}$$
+    <em>(Power in the pair of first sidebands USB + LSB \(= 2 \times 8868.87 = 17,737.7\text{ W}\))</em>
+  </div>
+
+  <div class="sbox">
+    <strong>Smallest Significant Sideband (\(n = 4\)):</strong>
+    $$J_4(2) = 0.0340$$
+    $$P_4 = (0.0340)^2 \times 26{,}666.67 = 0.001156 \times 26{,}666.67 = \mathbf{30.83\text{ W}}$$
+    <em>(Power in the pair of fourth sidebands USB + LSB \(= 2 \times 30.83 = 61.66\text{ W}\))</em>
+  </div>
+
+  <div class="abox">
+    ✦ <strong>Carson Bandwidth:</strong> \(30\text{ kHz}\)<br>
+    ✦ <strong>Bessel Bandwidth:</strong> \(40\text{ kHz}\)<br>
+    ✦ <strong>Largest Sideband Power (\(n=1\)):</strong> \(8.87\text{ kW}\) per sideband<br>
+    ✦ <strong>Smallest Sideband Power (\(n=4\)):</strong> \(30.83\text{ W}\) per sideband
+  </div>
+</div>
+</div>
+</div>
+
+</div><!-- /wrap -->
+
+<!-- ══════════════════════════════════════════════════
+     SVG SCRIPTING
+     ══════════════════════════════════════════════════ -->
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+
+function createEl(tag, attrs, txt) {
+  const e = document.createElementNS(NS, tag);
+  Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+  if (txt !== undefined) e.textContent = txt;
+  return e;
+}
+
+function initDefs(svg) {
+  const defs = document.createElementNS(NS, 'defs');
+  const mk = document.createElementNS(NS, 'marker');
+  mk.setAttribute('id', 'arr');
+  mk.setAttribute('markerWidth', '8');
+  mk.setAttribute('markerHeight', '6');
+  mk.setAttribute('refX', '7');
+  mk.setAttribute('refY', '3');
+  mk.setAttribute('orient', 'auto');
+  mk.appendChild(createEl('polygon', { points: '0 0 8 3 0 6', fill: '#607d8b' }));
+  defs.appendChild(mk);
+  svg.appendChild(defs);
+}
+
+// 1. AM Spectrum
+(function(){
+  const svg = document.getElementById('amspec');
+  initDefs(svg);
+  svg.appendChild(createEl('rect', { width: '540', height: '220', fill: '#f8f9ff', rx: '6' }));
+
+  const axY = 175, left = 60, right = 490;
+  svg.appendChild(createEl('line', { x1: left, y1: axY, x2: right, y2: axY, stroke: '#37474f', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: left, y1: axY, x2: left, y2: 25, stroke: '#37474f', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+
+  svg.appendChild(createEl('text', { x: '275', y: '205', 'text-anchor': 'middle', 'font-size': '11', fill: '#37474f', 'font-weight': '600' }, 'Frequency (f)'));
+  svg.appendChild(createEl('text', { x: '18', y: '100', 'text-anchor': 'middle', 'font-size': '11', fill: '#37474f', 'font-weight': '600', transform: 'rotate(-90 18 100)' }, 'Voltage Amplitude'));
+
+  const fc = 275, fm = 110;
+  const lines = [
+    { x: fc - fm, h: 65, col: '#43a047', lbl: 'fc - fm', tag: 'LSB', amp: 'm·Ac / 2' },
+    { x: fc,      h: 130, col: '#1565c0', lbl: 'fc',      tag: 'Carrier', amp: 'Ac' },
+    { x: fc + fm, h: 65, col: '#e53935', lbl: 'fc + fm', tag: 'USB', amp: 'm·Ac / 2' }
+  ];
+
+  lines.forEach(l => {
+    svg.appendChild(createEl('line', { x1: l.x, y1: axY, x2: l.x, y2: axY - l.h, stroke: l.col, 'stroke-width': '3', 'marker-end': 'url(#arr)' }));
+    svg.appendChild(createEl('text', { x: l.x, y: axY + 16, 'text-anchor': 'middle', 'font-size': '10', fill: '#37474f', 'font-weight': '600' }, l.lbl));
+    svg.appendChild(createEl('text', { x: l.x, y: axY - l.h - 8, 'text-anchor': 'middle', 'font-size': '9.5', fill: l.col, 'font-weight': 'bold' }, l.amp));
+    svg.appendChild(createEl('text', { x: l.x, y: axY - l.h - 20, 'text-anchor': 'middle', 'font-size': '8.5', fill: '#78909c' }, l.tag));
+  });
+
+  // Bandwidth bracket
+  svg.appendChild(createEl('line', { x1: fc - fm, y1: 50, x2: fc + fm, y2: 50, stroke: '#6a1b9a', 'stroke-width': '1.2', 'stroke-dasharray': '3,3' }));
+  svg.appendChild(createEl('line', { x1: fc - fm, y1: 45, x2: fc - fm, y2: 55, stroke: '#6a1b9a', 'stroke-width': '1.2' }));
+  svg.appendChild(createEl('line', { x1: fc + fm, y1: 45, x2: fc + fm, y2: 55, stroke: '#6a1b9a', 'stroke-width': '1.2' }));
+  svg.appendChild(createEl('text', { x: fc, y: 44, 'text-anchor': 'middle', 'font-size': '10', fill: '#6a1b9a', 'font-weight': 'bold' }, 'BW = 2 fm'));
+})();
+
+// 2. Filter Method Diagram
+(function(){
+  const svg = document.getElementById('filter-bd');
+  initDefs(svg);
+  svg.appendChild(createEl('rect', { width: '480', height: '180', fill: '#f8f9ff', rx: '6' }));
+
+  function drawBox(x, y, w, h, col, textLines) {
+    const g = document.createElementNS(NS, 'g');
+    g.appendChild(createEl('rect', { x, y, width: w, height: h, rx: '5', fill: col }));
+    textLines.forEach((t, i) => {
+      g.appendChild(createEl('text', { x: x + w/2, y: y + h/2 - (textLines.length - 1)*6 + i*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '9', 'font-weight': '600' }, t));
+    });
+    svg.appendChild(g);
+    return { cx: x + w/2, cy: y + h/2, r: x + w, l: x, t: y, b: y + h };
+  }
+
+  const bm = drawBox(140, 50, 110, 50, '#1565c0', ['Balanced', 'Modulator']);
+  const bpf = drawBox(300, 50, 100, 50, '#283593', ['Sideband Filter', '(Sharp BPF)']);
+
+  // m(t) input
+  svg.appendChild(createEl('line', { x1: 20, y1: 75, x2: 140, y2: 75, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('text', { x: 70, y: 68, 'text-anchor': 'middle', 'font-size': '9.5', fill: '#37474f', 'font-weight': 'bold' }, 'm(t)'));
+
+  // Carrier input
+  svg.appendChild(createEl('line', { x1: 195, y1: 145, x2: 195, y2: 100, stroke: '#e53935', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('text', { x: 195, y: 160, 'text-anchor': 'middle', 'font-size': '8.5', fill: '#c62828', 'font-weight': '600' }, 'Carrier Ac cos(ωct)'));
+
+  // Intermediate DSB-SC
+  svg.appendChild(createEl('line', { x1: bm.r, y1: 75, x2: bpf.l, y2: 75, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('text', { x: (bm.r + bpf.l)/2, y: 68, 'text-anchor': 'middle', 'font-size': '8.5', fill: '#283593', 'font-weight': '600' }, 'DSB-SC'));
+
+  // Output SSB
+  svg.appendChild(createEl('line', { x1: bpf.r, y1: 75, x2: 450, y2: 75, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('text', { x: 430, y: 68, 'text-anchor': 'middle', 'font-size': '9.5', fill: '#1b5e20', 'font-weight': 'bold' }, 'SSB'));
+})();
+
+// 3. Phase Method Diagram
+(function(){
+  const svg = document.getElementById('phase-bd');
+  initDefs(svg);
+  svg.appendChild(createEl('rect', { width: '480', height: '210', fill: '#f8f9ff', rx: '6' }));
+
+  function drawBox(x, y, w, h, col, textLines) {
+    const g = document.createElementNS(NS, 'g');
+    g.appendChild(createEl('rect', { x, y, width: w, height: h, rx: '5', fill: col }));
+    textLines.forEach((t, i) => {
+      g.appendChild(createEl('text', { x: x + w/2, y: y + h/2 - (textLines.length - 1)*6 + i*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '8.5', 'font-weight': '600' }, t));
+    });
+    svg.appendChild(g);
+    return { cx: x + w/2, cy: y + h/2, r: x + w, l: x, t: y, b: y + h };
+  }
+
+  const pShifter = drawBox(120, 25, 90, 42, '#00695c', ['90° Audio', 'Phase Shifter']);
+  const bm1 = drawBox(250, 25, 80, 42, '#1565c0', ['Multiplier 1']);
+  const bm2 = drawBox(250, 130, 80, 42, '#1565c0', ['Multiplier 2']);
+  const sum = drawBox(375, 78, 65, 45, '#4a148c', ['Adder /', 'Subtractor']);
+
+  // m(t) inputs
+  svg.appendChild(createEl('line', { x1: 20, y1: 100, x2: 60, y2: 100, stroke: '#607d8b', 'stroke-width': '1.5' }));
+  svg.appendChild(createEl('line', { x1: 60, y1: 46, x2: 60, y2: 151, stroke: '#607d8b', 'stroke-width': '1.5' }));
+  svg.appendChild(createEl('line', { x1: 60, y1: 46, x2: 120, y2: 46, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: 60, y1: 151, x2: 250, y2: 151, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('text', { x: 35, y: 92, 'text-anchor': 'middle', 'font-size': '9', fill: '#37474f', 'font-weight': 'bold' }, 'm(t)'));
+
+  // Shifted m(t) to BM1
+  svg.appendChild(createEl('line', { x1: pShifter.r, y1: 46, x2: bm1.l, y2: 46, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+
+  // Carrier generator & shift
+  svg.appendChild(createEl('circle', { cx: '290', cy: '98', r: '14', fill: '#e53935' }));
+  svg.appendChild(createEl('text', { x: '290', y: '102', 'text-anchor': 'middle', fill: '#fff', 'font-size': '8', 'font-weight': 'bold' }, 'RF Osc'));
+  svg.appendChild(createEl('line', { x1: 290, y1: 84, x2: 290, y2: 67, stroke: '#e53935', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: 290, y1: 112, x2: 290, y2: 130, stroke: '#e53935', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+
+  // Connections to summer
+  svg.appendChild(createEl('line', { x1: bm1.r, y1: 46, x2: 375, y2: 90, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: bm2.r, y1: 151, x2: 375, y2: 110, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+
+  // Final output
+  svg.appendChild(createEl('line', { x1: sum.r, y1: 100, x2: 465, y2: 100, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('text', { x: 455, y: 92, 'text-anchor': 'middle', 'font-size': '9.5', fill: '#1b5e20', 'font-weight': 'bold' }, 'SSB'));
+})();
+
+// 4. DCS Block Diagram
+(function(){
+  const svg = document.getElementById('dcs-bd');
+  initDefs(svg);
+  svg.appendChild(createEl('rect', { width: '940', height: '190', fill: '#f8f9ff', rx: '6' }));
+
+  const blocks = [
+    { col: '#37474f', l: ['Info.', 'Source'] },
+    { col: '#1565c0', l: ['Source', 'Encoder'] },
+    { col: '#283593', l: ['Channel', 'Encoder'] },
+    { col: '#4a148c', l: ['Digital', 'Modulator'] },
+    { col: '#c2185b', l: ['Channel', '(Noise)'] },
+    { col: '#4a148c', l: ['Digital', 'Demod.'] },
+    { col: '#283593', l: ['Channel', 'Decoder'] },
+    { col: '#1565c0', l: ['Source', 'Decoder'] },
+    { col: '#37474f', l: ['Output', 'Sink'] },
+  ];
+
+  const bw = 85, bh = 54, gap = 15, y0 = 65;
+  const boxes = [];
+
+  blocks.forEach((b, i) => {
+    const x = 20 + i*(bw + gap);
+    const g = document.createElementNS(NS, 'g');
+    g.appendChild(createEl('rect', { x, y: y0, width: bw, height: bh, rx: '5', fill: b.col }));
+    b.l.forEach((txt, ti) => {
+      g.appendChild(createEl('text', { x: x + bw/2, y: y0 + bh/2 - (b.l.length-1)*6 + ti*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '8.5', 'font-weight': '600' }, txt));
+    });
+    svg.appendChild(g);
+    boxes.push({ r: x + bw, l: x, cy: y0 + bh/2, cx: x + bw/2 });
+  });
+
+  for (let i = 0; i < boxes.length - 1; i++) {
+    svg.appendChild(createEl('line', { x1: boxes[i].r, y1: boxes[i].cy, x2: boxes[i+1].l, y2: boxes[i+1].cy, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+  }
+
+  svg.appendChild(createEl('text', { x: '215', y: '35', 'text-anchor': 'middle', 'font-size': '11', fill: '#1565c0', 'font-weight': 'bold' }, '─── TRANSMITTER ───'));
+  svg.appendChild(createEl('text', { x: '725', y: '35', 'text-anchor': 'middle', 'font-size': '11', fill: '#283593', 'font-weight': 'bold' }, '─── RECEIVER ───'));
+})();
+
+// 5. Formatting Block Diagram
+(function(){
+  const svg = document.getElementById('fmt-bd');
+  initDefs(svg);
+  svg.appendChild(createEl('rect', { width: '760', height: '180', fill: '#f8f9ff', rx: '6' }));
+
+  function box(x, y, w, h, col, textLines) {
+    const g = document.createElementNS(NS, 'g');
+    g.appendChild(createEl('rect', { x, y, width: w, height: h, rx: '5', fill: col }));
+    textLines.forEach((t, i) => {
+      g.appendChild(createEl('text', { x: x + w/2, y: y + h/2 - (textLines.length - 1)*6 + i*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '8.5', 'font-weight': '600' }, t));
+    });
+    svg.appendChild(g);
+    return { r: x + w, l: x, cy: y + h/2, cx: x + w/2 };
+  }
+
+  const s1 = box(15, 25, 95, 38, '#455a64', ['Analog Voice/Vid']);
+  const s2 = box(15, 75, 95, 38, '#455a64', ['Textual Data']);
+  const s3 = box(15, 125, 95, 38, '#455a64', ['Binary Stream']);
+
+  const smp = box(160, 25, 85, 38, '#00695c', ['Sampler', '(Nyquist fs)']);
+  const qnt = box(280, 25, 85, 38, '#00695c', ['Quantizer', '(L levels)']);
+  const enc = box(400, 25, 85, 38, '#00695c', ['Bit Encoder', '(PCM)']);
+
+  const mux = box(540, 50, 75, 80, '#1a237e', ['Source /', 'Data MUX']);
+  const out = box(660, 68, 85, 45, '#2e7d32', ['Binary Bit', 'Stream {bn}']);
+
+  svg.appendChild(createEl('line', { x1: s1.r, y1: s1.cy, x2: smp.l, y2: smp.cy, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: smp.r, y1: smp.cy, x2: qnt.l, y2: qnt.cy, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: qnt.r, y1: qnt.cy, x2: enc.l, y2: enc.cy, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: enc.r, y1: enc.cy, x2: mux.l, y2: 60, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+
+  svg.appendChild(createEl('line', { x1: s2.r, y1: s2.cy, x2: mux.l, y2: 90, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: s3.r, y1: s3.cy, x2: mux.l, y2: 120, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+  svg.appendChild(createEl('line', { x1: mux.r, y1: 90, x2: out.l, y2: 90, stroke: '#607d8b', 'stroke-width': '1.8', 'marker-end': 'url(#arr)' }));
+})();
+
+// 6. ACS & General Model
+(function(){
+  function drawChain(id, labels, title) {
+    const svg = document.getElementById(id);
+    initDefs(svg);
+    svg.appendChild(createEl('rect', { width: '540', height: '140', fill: '#f8f9ff', rx: '6' }));
+    svg.appendChild(createEl('text', { x: '270', y: '22', 'text-anchor': 'middle', 'font-size': '11', fill: '#1a237e', 'font-weight': 'bold' }, title));
+
+    const bw = 82, bh = 46, gap = 16, y0 = 50;
+    let prev = null;
+
+    labels.forEach((b, i) => {
+      const x = 20 + i*(bw + gap);
+      const g = document.createElementNS(NS, 'g');
+      g.appendChild(createEl('rect', { x, y: y0, width: bw, height: bh, rx: '4', fill: b.col }));
+      b.l.forEach((txt, ti) => {
+        g.appendChild(createEl('text', { x: x + bw/2, y: y0 + bh/2 - (b.l.length-1)*6 + ti*13, 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': '8.5', 'font-weight': '600' }, txt));
+      });
+      svg.appendChild(g);
+      if (prev !== null) {
+        svg.appendChild(createEl('line', { x1: prev, y1: y0 + bh/2, x2: x, y2: y0 + bh/2, stroke: '#607d8b', 'stroke-width': '1.5', 'marker-end': 'url(#arr)' }));
+      }
+      prev = x + bw;
+    });
+  }
+
+  drawChain('acs-bd', [
+    { col: '#455a64', l: ['Analog', 'Source'] },
+    { col: '#1565c0', l: ['Analog', 'Modulator'] },
+    { col: '#c2185b', l: ['Channel', '(Noise)'] },
+    { col: '#1565c0', l: ['Analog', 'Demod.'] },
+    { col: '#455a64', l: ['Output', 'Sink'] },
+  ], 'Analog Communication System (ACS)');
+
+  drawChain('gen-bd', [
+    { col: '#37474f', l: ['Information', 'Source'] },
+    { col: '#1e88e5', l: ['Transmitter'] },
+    { col: '#e53935', l: ['Channel', '(Noise)'] },
+    { col: '#283593', l: ['Receiver'] },
+    { col: '#37474f', l: ['Destination'] },
+  ], "Shannon's General Model of Communication System");
+})();
+</script>
+</body>
+</html>
