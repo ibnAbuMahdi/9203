@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELT 4301 &#45; CA Solutions</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters:[
+      {left:'$$',right:'$$',display:true},
+      {left:'\\(',right:'\\)',display:false}
+    ],
+    throwOnError:false
+  });"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:#eceff1;
+  color:#263238;
+  padding:clamp(10px, 2.5vw, 20px);
+  font-size:14px;
+  line-height:1.7;
+}
+.wrap{max-width:1020px;margin:0 auto;width:100%}
+header{
+  background:linear-gradient(135deg,#1a237e,#0d47a1);
+  color:#fff;
+  padding:clamp(16px, 3vw, 24px) clamp(16px, 3.5vw, 28px);
+  border-radius:10px;
+  margin-bottom:16px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(13,71,161,0.2);
+}
+header h1{font-size:clamp(1.15rem, 3.5vw, 1.4rem);line-height:1.35}
+header p{font-size:clamp(0.75rem, 2vw, 0.85rem);opacity:.85;margin-top:6px}
+.nav-bar{
+  background:#fff;
+  border-radius:8px;
+  padding:12px 18px;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+  flex-wrap:wrap;
+  gap:10px;
+}
+.reflink{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#e8eaf6;
+  border:1px solid #9fa8da;
+  border-radius:6px;
+  padding:8px 14px;
+  text-decoration:none;
+  color:#283593;
+  font-size:.85rem;
+  font-weight:600;
+  transition:all 0.2s ease;
+  min-height:38px;
+}
+.reflink:hover{background:#c5cae9;transform:translateY(-1px)}
+.card{
+  background:#fff;
+  border-radius:10px;
+  padding:clamp(16px, 2.5vw, 24px);
+  margin-bottom:18px;
+  box-shadow:0 1px 6px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.ql{
+  display:inline-block;
+  background:#1a237e;
+  color:#fff;
+  padding:3px 14px;
+  border-radius:20px;
+  font-size:.78rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.card h2{
+  font-size:clamp(1.02rem, 2.5vw, 1.15rem);
+  color:#1a237e;
+  margin-bottom:12px;
+  border-bottom:2px solid #e8eaf6;
+  padding-bottom:6px;
+}
+.card h3{font-size:.95rem;color:#283593;margin:14px 0 8px}
+.eqbox{
+  background:#e8eaf6;
+  border-left:4px solid #3f51b5;
+  padding:10px 16px;
+  margin:10px 0;
+  border-radius:0 6px 6px 0;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.katex-display{margin:0.5em 0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+.sbox{background:#f3f4ff;border:1px solid #c5cae9;padding:12px 14px;border-radius:6px;margin:8px 0;overflow-x:auto}
+.abox{background:#fff8e1;border-left:4px solid #ff8f00;padding:12px 14px;border-radius:0 6px 6px 0;margin:8px 0;line-height:2.1}
+.ref-note{background:#e8f5e9;border-left:4px solid #43a047;padding:12px 16px;border-radius:0 6px 6px 0;margin:10px 0;font-size:.92rem}
+.tbl-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0;border-radius:6px;border:1px solid #e8eaf6}
+table{border-collapse:collapse;width:100%;font-size:clamp(0.78rem, 1.8vw, 0.84rem);min-width:480px}
+th{background:#283593;color:#fff;padding:9px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top}
+tr:nth-child(even) td{background:#f8f9ff}
+.row{display:flex;gap:18px;flex-wrap:wrap}
+.col{flex:1 1 280px;min-width:0}
+svg,canvas{max-width:100%;height:auto;display:block}
+.cap{text-align:center;font-size:.75rem;color:#78909c;margin-top:6px}
+p{margin-bottom:8px}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin-bottom:3px}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  body{padding:10px}
+  .row{flex-direction:column;gap:14px}
+  .col{flex:1 1 100% !important;min-width:0 !important;width:100% !important}
+  .nav-bar{flex-direction:column;align-items:stretch;text-align:center;gap:12px}
+  .nav-bar > div:last-child{display:flex;flex-direction:column;width:100%;gap:8px}
+  .reflink{width:100%;justify-content:center}
+  .card{padding:14px}
+  .eqbox{padding:8px 12px}
+}
+
+/* Print Optimization */
+@media print {
+  body{background:#fff;color:#000;padding:0;font-size:10.5pt}
+  .wrap{max-width:100%;width:100%;margin:0}
+  header{background:none;color:#000;border:1px solid #999;box-shadow:none;padding:12px}
+  header h1{color:#000}
+  .nav-bar{display:none}
+  .card{box-shadow:none;border:1px solid #ccc;margin-bottom:12px;page-break-inside:avoid}
+  .eqbox,.sbox,.abox{background:#fafafa;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>ELT 4301 &#45; Electronic Communication Systems: C.A. Solutions</h1>
+  <p>Bayero University, Kano &nbsp;|&nbsp; B.Sc. Electronics with Physics &nbsp;|&nbsp; First Semester 2025/2026</p>
+</header>
+
+<div class="nav-bar">
+  <div><strong>Cross-Course References:</strong> Direct links to related examination papers:</div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+    <a class="reflink" href="ELT4301_Exam_Solutions.html" target="_blank">📄 View ELT 4301 Exam Solutions</a>
+    <a class="reflink" href="ELT8214_Exam_Solutions.html" target="_blank">📄 View ELT 8214 M.Sc. Solutions</a>
+  </div>
+</div>
+
+<!-- â•â• Q1a â•â• -->
+<div class="card">
+<span class="ql">Q 1a</span>
+<h2>Mobile Cellular Network Topology &amp; 7-Cell Cluster</h2>
+<div class="row">
+  <div class="col" style="flex:2.2;min-width:420px">
+    <svg id="topo" viewBox="0 0 760 330" width="100%"></svg>
+    <p class="cap">Fig 1 &#45; GSM Mobile Cellular Network Architecture</p>
+  </div>
+  <div class="col" style="flex:1;min-width:240px">
+    <svg id="cluster" viewBox="148 102 312 318" width="100%"></svg>
+    <p class="cap">Fig 2 &#45; 7-Cell Hexagonal Cluster (N = 7), Cells A&#45;G</p>
+  </div>
+</div>
+<h3>Sub-system Descriptions</h3>
+<table>
+<tr><th>Node / Sub-system</th><th>Description &amp; Function</th></tr>
+<tr><td><strong>MS</strong> &#45; Mobile Station</td><td>User terminal (Mobile Equipment + SIM). Communicates with BTS over the radio <em>Um</em> (air) interface.</td></tr>
+<tr><td><strong>BTS/BS</strong> &#45; Base Transceiver Station</td><td>Provides radio coverage for one cell. Handles RF modulation/demodulation, channel coding, and ciphering.</td></tr>
+<tr><td><strong>BSC</strong> &#45; Base Station Controller</td><td>Controls multiple BTSs. Manages handover, power control, and channel allocation. BTS + BSC = <strong>BSS</strong>.</td></tr>
+<tr><td><strong>MSC</strong> &#45; Mobile Switching Center</td><td>Core switching node. Routes calls, manages location updates, and connects to PSTN via GMSC.</td></tr>
+<tr><td><strong>HLR</strong> &#45; Home Location Register</td><td>Permanent subscriber database: subscribed services, IMSI, current location area.</td></tr>
+<tr><td><strong>VLR</strong> &#45; Visitor Location Register</td><td>Temporary database of subscribers currently in the MSC service area.</td></tr>
+<tr><td><strong>AuC</strong> &#45; Authentication Center</td><td>Generates authentication triplets (RAND, SRES, Kc) for subscriber authentication and encryption.</td></tr>
+<tr><td><strong>EIR</strong> &#45; Equipment Identity Register</td><td>White/grey/black lists of IMEI numbers to detect stolen or barred handsets.</td></tr>
+<tr><td><strong>GMSC</strong> &#45; Gateway MSC</td><td>Connects the PLMN to external networks (PSTN/ISDN). Routes incoming calls to the correct MSC.</td></tr>
+<tr><td><strong>PSTN/ISDN</strong></td><td>Public Switched Telephone Network â€“ the external fixed-line network.</td></tr>
+</table>
+</div>
+
+<!-- â•â• Q1b â•â• -->
+<div class="card">
+<span class="ql">Q 1b</span>
+<h2>FM and PM Signal Derivations</h2>
+<h3>General Angle-Modulated Signal</h3>
+<p>An angle-modulated signal has the general form:</p>
+<div class="eqbox">$$s(t) = A_c \cos\bigl[\,\theta_i(t)\,\bigr]$$</div>
+<p>where the <strong>instantaneous frequency</strong> is defined as:</p>
+<div class="eqbox">$$f_i(t) = \frac{1}{2\pi}\frac{d\,\theta_i(t)}{dt}$$</div>
+
+<div class="row" style="margin-top:12px">
+<div class="col">
+<h3>â‘  Frequency Modulation (FM)</h3>
+<p>In FM, the instantaneous frequency varies linearly with the message \(m(t)\):</p>
+<div class="eqbox">$$f_i(t) = f_c + k_f\,m(t)$$</div>
+<p>Integrating to obtain \(\theta_i(t)\):</p>
+<div class="eqbox">$$\theta_i(t) = 2\pi f_c t + 2\pi k_f \int_0^t m(\tau)\,d\tau$$</div>
+<p><strong>FM Signal Expression:</strong></p>
+<div class="eqbox">$$\boxed{s_{\mathrm{FM}}(t) = A_c \cos\!\left[2\pi f_c t + 2\pi k_f \int_0^t m(\tau)\,d\tau\right]}$$</div>
+<p>For single-tone \(m(t) = A_m\cos(2\pi f_m t)\):</p>
+<div class="eqbox">$$s_{\mathrm{FM}}(t) = A_c \cos\!\bigl[2\pi f_c t + \beta_{\mathrm{FM}}\sin(2\pi f_m t)\bigr]$$</div>
+<p><strong>FM Modulation Index:</strong></p>
+<div class="eqbox">$$\boxed{\beta_{\mathrm{FM}} = \frac{\Delta f}{f_m} = \frac{k_f A_m}{f_m}}$$</div>
+</div>
+
+<div class="col">
+<h3>â‘¡ Phase Modulation (PM)</h3>
+<p>In PM, the instantaneous phase varies linearly with the message \(m(t)\):</p>
+<div class="eqbox">$$\theta_i(t) = 2\pi f_c t + k_p\,m(t)$$</div>
+<p>Substituting directly into the general form:</p>
+<div class="eqbox" style="min-height:38px">&nbsp;</div>
+<p><strong>PM Signal Expression:</strong></p>
+<div class="eqbox">$$\boxed{s_{\mathrm{PM}}(t) = A_c \cos\!\bigl[2\pi f_c t + k_p\,m(t)\bigr]}$$</div>
+<p>For single-tone \(m(t) = A_m\cos(2\pi f_m t)\):</p>
+<div class="eqbox">$$s_{\mathrm{PM}}(t) = A_c \cos\!\bigl[2\pi f_c t + \beta_{\mathrm{PM}}\cos(2\pi f_m t)\bigr]$$</div>
+<p><strong>PM Modulation Index:</strong></p>
+<div class="eqbox">$$\boxed{\beta_{\mathrm{PM}} = k_p A_m}$$</div>
+</div>
+</div>
+
+<h3>Parameter Definitions</h3>
+<table>
+<tr><th>Symbol</th><th>Name</th><th>Unit</th><th>Meaning</th></tr>
+<tr><td>\(A_c\)</td><td>Carrier amplitude</td><td>V</td><td>Constant; angle modulation does not change amplitude</td></tr>
+<tr><td>\(f_c\)</td><td>Carrier frequency</td><td>Hz</td><td>Frequency of the unmodulated carrier</td></tr>
+<tr><td>\(\theta_i(t)\)</td><td>Instantaneous phase</td><td>rad</td><td>Total time-varying phase of the modulated signal</td></tr>
+<tr><td>\(m(t)\)</td><td>Message signal</td><td>V</td><td>Baseband information (modulating) signal</td></tr>
+<tr><td>\(A_m\)</td><td>Message amplitude</td><td>V</td><td>Peak amplitude of \(m(t)\)</td></tr>
+<tr><td>\(f_m\)</td><td>Message frequency</td><td>Hz</td><td>Frequency of the modulating tone</td></tr>
+<tr><td>\(k_f\)</td><td>Frequency sensitivity</td><td>Hz/V</td><td>Frequency deviation produced per unit of \(m(t)\)</td></tr>
+<tr><td>\(k_p\)</td><td>Phase sensitivity</td><td>rad/V</td><td>Phase deviation produced per unit of \(m(t)\)</td></tr>
+<tr><td>\(\Delta f = k_f A_m\)</td><td>Max. freq. deviation</td><td>Hz</td><td>Maximum departure of \(f_i\) from \(f_c\)</td></tr>
+<tr><td>\(\beta_{\mathrm{FM}}\)</td><td>FM modulation index</td><td>â€”</td><td>Ratio of max. frequency deviation to message frequency</td></tr>
+<tr><td>\(\beta_{\mathrm{PM}}\)</td><td>PM modulation index</td><td>rad</td><td>Maximum phase deviation in radians</td></tr>
+</table>
+</div>
+
+<!-- â•â• Q2a â•â• -->
+<div class="card">
+<span class="ql">Q 2a</span>
+<h2>AM Signal Analysis</h2>
+<p><strong>Given:</strong> Peak-to-peak envelope = 200 V &nbsp;|&nbsp; Trough-to-trough envelope = 40 V</p>
+<div class="row" style="margin-top:12px;align-items:flex-start">
+  <div class="col" style="flex:1.5;min-width:280px">
+    <canvas id="amc" width="380" height="210" style="width:100%;border-radius:6px;border:1px solid #e0e0e0"></canvas>
+    <p class="cap">Fig 3 &#45; AM Signal with Envelope Annotations</p>
+  </div>
+  <div class="col" style="min-width:250px">
+    <div class="sbox">
+      <strong>Step 1 &#45; Identify V<sub>max</sub> and V<sub>min</sub></strong><br><br>
+      AM signal: \(s(t) = [A_c + A_m\cos(2\pi f_m t)]\cos(2\pi f_c t)\)<br><br>
+      \(2V_{\max} = 200\,\text{V} \;\Rightarrow\; V_{\max} = 100\,\text{V} = A_c + A_m\)<br>
+      \(2V_{\min} = 40\,\text{V} \;\Rightarrow\; V_{\min} = 20\,\text{V} = A_c - A_m\)
+    </div>
+    <div class="sbox">
+      <strong>Step 2 &#45; Solve for A<sub>c</sub> and A<sub>m</sub></strong>
+      $$A_c = \frac{V_{\max}+V_{\min}}{2} = \frac{100+20}{2} = \mathbf{60\,V}$$
+      $$A_m = \frac{V_{\max}-V_{\min}}{2} = \frac{100-20}{2} = \mathbf{40\,V}$$
+    </div>
+    <div class="sbox">
+      <strong>Step 3 &#45; Modulation Depth</strong>
+      $$\mu = \frac{A_m}{A_c} = \frac{40}{60} = 0.667 \quad (66.7\,\%)$$
+    </div>
+    <div class="abox">
+      âœ¦ <strong>Modulation Depth (Index):</strong> &mu; = 0.667<br>
+      âœ¦ <strong>Percentage Modulation:</strong> 66.7 %<br>
+      âœ¦ <strong>Peak Carrier Amplitude:</strong> A<sub>c</sub> = 60 V<br>
+      âœ¦ <strong>Peak Modulating Amplitude:</strong> A<sub>m</sub> = 40 V
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- â•â• Q2b â•â• -->
+<div class="card">
+<span class="ql">Q 2b</span>
+<h2>Acronym Definitions</h2>
+<table>
+<tr><th>Acronym</th><th>Full Meaning</th><th>Domain</th></tr>
+<tr><td><strong>BTS/BS</strong></td><td>Base Transceiver Station / Base Station</td><td>Cellular / GSM</td></tr>
+<tr><td><strong>BSC</strong></td><td>Base Station Controller</td><td>Cellular / GSM</td></tr>
+<tr><td><strong>MSC</strong></td><td>Mobile Switching Center</td><td>Cellular / GSM</td></tr>
+<tr><td><strong>HLR</strong></td><td>Home Location Register</td><td>Cellular / GSM</td></tr>
+<tr><td><strong>VLR</strong></td><td>Visitor Location Register</td><td>Cellular / GSM</td></tr>
+<tr><td><strong>SNR</strong></td><td>Signal-to-Noise Ratio</td><td>Communications</td></tr>
+<tr><td><strong>PSTN</strong></td><td>Public Switched Telephone Network</td><td>Telecommunications</td></tr>
+<tr><td><strong>PLMN</strong></td><td>Public Land Mobile Network</td><td>Cellular</td></tr>
+<tr><td><strong>UE</strong></td><td>User Equipment</td><td>3GPP / LTE / 5G NR</td></tr>
+<tr><td><strong>ASK</strong></td><td>Amplitude Shift Keying</td><td>Digital Modulation</td></tr>
+<tr><td><strong>FSK</strong></td><td>Frequency Shift Keying</td><td>Digital Modulation</td></tr>
+<tr><td><strong>PSK</strong></td><td>Phase Shift Keying</td><td>Digital Modulation</td></tr>
+<tr><td><strong>dBm</strong></td><td>Decibels relative to one Milliwatt (0 dBm = 1 mW)</td><td>Power Measurement</td></tr>
+</table>
+</div>
+
+</div>
+
+<script>
+/* â•â• TOPOLOGY â•â• */
+(function(){
+  const svg=document.getElementById('topo'),NS='http://www.w3.org/2000/svg';
+  const defs=document.createElementNS(NS,'defs');
+  const mk=document.createElementNS(NS,'marker');
+  mk.setAttribute('id','arr');mk.setAttribute('markerWidth','8');mk.setAttribute('markerHeight','6');
+  mk.setAttribute('refX','7');mk.setAttribute('refY','3');mk.setAttribute('orient','auto');
+  const mp=document.createElementNS(NS,'polygon');
+  mp.setAttribute('points','0 0 8 3 0 6');mp.setAttribute('fill','#607d8b');
+  mk.appendChild(mp);defs.appendChild(mk);svg.appendChild(defs);
+
+  const Lg=()=>{const g=document.createElementNS(NS,'g');svg.appendChild(g);return g;};
+  const L0=Lg(),L1=Lg(),L2=Lg(),L3=Lg(),L4=Lg();
+
+  const bgr=document.createElementNS(NS,'rect');
+  bgr.setAttribute('width','760');bgr.setAttribute('height','330');
+  bgr.setAttribute('fill','#f8f9ff');bgr.setAttribute('rx','8');L0.appendChild(bgr);
+
+  function bx(lyr,x,y,w,h,fill,lines){
+    const g=document.createElementNS(NS,'g');
+    const r=document.createElementNS(NS,'rect');
+    r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',w);r.setAttribute('height',h);
+    r.setAttribute('rx','5');r.setAttribute('fill',fill);
+    r.setAttribute('stroke','rgba(0,0,0,0.2)');r.setAttribute('stroke-width','1');g.appendChild(r);
+    const cx2=x+w/2,nL=lines.length,lh=13;
+    lines.forEach((t,i)=>{
+      const el=document.createElementNS(NS,'text');
+      el.setAttribute('x',cx2);el.setAttribute('y',y+h/2-(nL-1)*lh/2+i*lh+4);
+      el.setAttribute('text-anchor','middle');el.setAttribute('dominant-baseline','middle');
+      el.setAttribute('font-size',i===0?'11':'8');el.setAttribute('font-weight',i===0?'bold':'normal');
+      el.setAttribute('fill','#fff');el.textContent=t;g.appendChild(el);
+    });
+    lyr.appendChild(g);return{x,y,w,h,cx:x+w/2,cy:y+h/2};
+  }
+  function line(lyr,x1,y1,x2,y2,o){
+    o=o||{};const l=document.createElementNS(NS,'line');
+    l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
+    l.setAttribute('stroke',o.c||'#607d8b');l.setAttribute('stroke-width',o.w||'2');
+    if(o.d)l.setAttribute('stroke-dasharray',o.d);
+    if(o.a)l.setAttribute('marker-end','url(#arr)');
+    lyr.appendChild(l);
+  }
+  function txt(lyr,x,y,s,o){
+    o=o||{};const t=document.createElementNS(NS,'text');
+    t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor',o.a||'middle');
+    t.setAttribute('font-size',o.s||'10');t.setAttribute('fill',o.c||'#455a64');
+    if(o.b)t.setAttribute('font-weight','bold');
+    if(o.i)t.setAttribute('font-style','italic');
+    t.textContent=s;lyr.appendChild(t);
+  }
+  function grpBox(lyr,x,y,w,h,label){
+    const r=document.createElementNS(NS,'rect');
+    r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',w);r.setAttribute('height',h);
+    r.setAttribute('fill','rgba(197,202,233,0.12)');r.setAttribute('stroke','#7986cb');
+    r.setAttribute('stroke-width','1.5');r.setAttribute('stroke-dasharray','7,3');r.setAttribute('rx','8');
+    lyr.appendChild(r);
+    txt(lyr,x+5,y-5,label,{a:'start',s:'9',c:'#5c6bc0',b:true});
+  }
+
+  const Y0=130,BH=52,BW=82;
+  const ms  =bx(L3, 12,Y0,BW,BH,'#1565c0',['MS','Mobile Station']);
+  const bts =bx(L3,148,Y0,BW,BH,'#283593',['BTS/BS','Base Station']);
+  const bsc =bx(L3,286,Y0,BW,BH,'#283593',['BSC','BS Controller']);
+  const msc =bx(L3,428,Y0,BW,BH,'#1b5e20',['MSC','Switching Ctr']);
+  const gmsc=bx(L3,566,Y0,BW,BH,'#4a148c',['GMSC','Gateway MSC']);
+  const pstn=bx(L3,660,Y0,92, BH,'#bf360c',['PSTN','Public Network']);
+  const DY=258,DH=46,DW=78;
+  const hlr=bx(L3,346,DY,DW,DH,'#00695c',['HLR','Home Loc. Reg.']);
+  const vlr=bx(L3,432,DY,DW,DH,'#00695c',['VLR','Visitor Loc.']);
+  const auc=bx(L3,518,DY,DW,DH,'#00695c',['AuC','Auth. Center']);
+  const eir=bx(L3,604,DY,DW,DH,'#00695c',['EIR','Equip. ID Reg.']);
+
+  grpBox(L1,138,114,244,80,'Base Station Sub-system (BSS)');
+  txt(L4,490,109,'Network Sub-system (NSS) / Core Network',{s:'9',c:'#5c6bc0',b:true});
+
+  const ax0=ms.x+BW+2,ax1=bts.x-2,amid=(ax0+ax1)/2,ay=ms.cy;
+  const ap=document.createElementNS(NS,'path');
+  ap.setAttribute('d',`M${ax0},${ay} C${ax0+18},${ay-18} ${amid-8},${ay-18} ${amid},${ay} S${ax1-10},${ay+18} ${ax1},${ay}`);
+  ap.setAttribute('fill','none');ap.setAttribute('stroke','#e53935');
+  ap.setAttribute('stroke-width','2');ap.setAttribute('stroke-dasharray','5,3');L2.appendChild(ap);
+  txt(L4,amid,ay-26,'Um (Air Interface)',{s:'8.5',c:'#c62828',i:true});
+
+  [[bts,bsc,'Abis'],[bsc,msc,'A'],[msc,gmsc,''],[gmsc,pstn,'']].forEach(([a,b,lbl])=>{
+    line(L2,a.x+BW,a.cy,b.x,b.cy,{a:true});
+    if(lbl)txt(L4,(a.x+BW+b.x)/2,a.cy-8,lbl,{s:'9',c:'#607d8b',i:true});
+  });
+  [hlr,vlr,auc,eir].forEach(d=>line(L2,msc.cx,msc.y+BH,d.cx,d.y,{c:'#90a4ae',w:'1.5'}));
+
+  txt(L4,380,17,'GSM Mobile Cellular Network Architecture',{s:'12',c:'#1a237e',b:true});
+  txt(L4,380,31,'All sub-systems and major interfaces shown',{s:'8',c:'#90a4ae',i:true});
+
+  const li=[
+    {c:'#1565c0',t:'MS'},{c:'#283593',t:'BSS (BTS+BSC)'},{c:'#1b5e20',t:'MSC'},
+    {c:'#4a148c',t:'GMSC'},{c:'#00695c',t:'Databases (HLR/VLR/AuC/EIR)'},{c:'#bf360c',t:'PSTN'},
+  ];
+  li.forEach((it,i)=>{
+    const col=i%3,row=Math.floor(i/3),lx=14+col*243,ly=303+row*16;
+    const r=document.createElementNS(NS,'rect');
+    r.setAttribute('x',lx);r.setAttribute('y',ly);r.setAttribute('width','12');r.setAttribute('height','10');
+    r.setAttribute('fill',it.c);r.setAttribute('rx','2');L4.appendChild(r);
+    txt(L4,lx+16,ly+9,it.t,{a:'start',s:'9',c:'#546e7a'});
+  });
+})();
+
+/* â•â• 7-CELL CLUSTER â•â• */
+(function(){
+  const svg=document.getElementById('cluster'),NS='http://www.w3.org/2000/svg';
+  const R=54,CX=304,CY=262;
+  const bg=document.createElementNS(NS,'rect');
+  bg.setAttribute('x','148');bg.setAttribute('y','102');bg.setAttribute('width','312');bg.setAttribute('height','318');
+  bg.setAttribute('fill','#f0f4ff');bg.setAttribute('rx','8');svg.appendChild(bg);
+
+  function a2p(q,r){return{x:CX+R*1.5*q,y:CY+R*(Math.sqrt(3)/2*q+Math.sqrt(3)*r)};}
+  function hpts(cx,cy){
+    return Array.from({length:6},(_,i)=>{
+      const a=Math.PI/3*i;
+      return`${(cx+(R-2)*Math.cos(a)).toFixed(1)},${(cy+(R-2)*Math.sin(a)).toFixed(1)}`;
+    }).join(' ');
+  }
+  const cells=[
+    {q:0,r:0,n:'A',c:'#e53935'},{q:1,r:0,n:'B',c:'#1e88e5'},
+    {q:0,r:1,n:'C',c:'#43a047'},{q:-1,r:1,n:'D',c:'#fb8c00'},
+    {q:-1,r:0,n:'E',c:'#8e24aa'},{q:0,r:-1,n:'F',c:'#00acc1'},
+    {q:1,r:-1,n:'G',c:'#f9a825'},
+  ];
+  cells.forEach(cell=>{
+    const p=a2p(cell.q,cell.r);
+    const poly=document.createElementNS(NS,'polygon');
+    poly.setAttribute('points',hpts(p.x,p.y));poly.setAttribute('fill',cell.c);
+    poly.setAttribute('fill-opacity','0.88');poly.setAttribute('stroke','#fff');poly.setAttribute('stroke-width','3');
+    svg.appendChild(poly);
+    const dot=document.createElementNS(NS,'circle');
+    dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y-5);dot.setAttribute('r','5');
+    dot.setAttribute('fill','rgba(255,255,255,0.65)');svg.appendChild(dot);
+    const t=document.createElementNS(NS,'text');
+    t.setAttribute('x',p.x);t.setAttribute('y',p.y+20);t.setAttribute('text-anchor','middle');
+    t.setAttribute('dominant-baseline','middle');t.setAttribute('font-size','26');
+    t.setAttribute('font-weight','bold');t.setAttribute('fill','#fff');t.textContent=cell.n;svg.appendChild(t);
+  });
+  const tit=document.createElementNS(NS,'text');
+  tit.setAttribute('x','304');tit.setAttribute('y','120');tit.setAttribute('text-anchor','middle');
+  tit.setAttribute('font-size','11');tit.setAttribute('font-weight','600');tit.setAttribute('fill','#37474f');
+  tit.textContent='Cluster N=7 | Cells A\u2013G';svg.appendChild(tit);
+  const note=document.createElementNS(NS,'text');
+  note.setAttribute('x','304');note.setAttribute('y','406');note.setAttribute('text-anchor','middle');
+  note.setAttribute('font-size','9');note.setAttribute('fill','#78909c');
+  note.textContent='\u25CF = BTS location in each cell';svg.appendChild(note);
+})();
+
+/* â•â• AM WAVEFORM â•â• */
+(function(){
+  const canvas=document.getElementById('amc'),ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height,midY=H/2+10;
+  const Ac=60,Am=40,Vmax=100,Vmin=20,sc=(midY-22)/Vmax;
+
+  ctx.fillStyle='#fafbff';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#eaecf4';ctx.lineWidth=0.6;
+  for(let y=0;y<H;y+=25){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  for(let x=0;x<W;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  ctx.strokeStyle='#b0bec5';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(0,midY);ctx.lineTo(W,midY);ctx.stroke();
+
+  ctx.beginPath();ctx.strokeStyle='#3949ab';ctx.lineWidth=1.3;
+  for(let px=0;px<W;px++){
+    const t=px/W,y=midY-(Ac+Am*Math.cos(2*Math.PI*t))*Math.cos(2*Math.PI*20*t)*sc;
+    px===0?ctx.moveTo(px,y):ctx.lineTo(px,y);
+  }ctx.stroke();
+
+  ctx.setLineDash([7,3]);ctx.strokeStyle='#e53935';ctx.lineWidth=2;
+  [1,-1].forEach(dir=>{
+    ctx.beginPath();
+    for(let px=0;px<W;px++){
+      const t=px/W,y=midY-dir*(Ac+Am*Math.cos(2*Math.PI*t))*sc;
+      px===0?ctx.moveTo(px,y):ctx.lineTo(px,y);
+    }ctx.stroke();
+  });ctx.setLineDash([]);
+
+  const yMax=midY-Vmax*sc,yMin=midY-Vmin*sc;
+  ctx.strokeStyle='rgba(229,57,53,0.4)';ctx.lineWidth=0.8;ctx.setLineDash([4,3]);
+  [yMax,yMin].forEach(y=>{ctx.beginPath();ctx.moveTo(58,y);ctx.lineTo(W,y);ctx.stroke();});
+  ctx.setLineDash([]);
+  ctx.fillStyle='#c62828';ctx.font='8.5px Segoe UI';ctx.textAlign='left';
+  ctx.fillText('Vmax = 100V (Ac + Am)',62,yMax-3);
+  ctx.fillText('Vmin = 20V  (Ac \u2212 Am)',62,yMin-3);
+
+  function bracket(x,y1,y2,lbl,color){
+    ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x,y1);ctx.lineTo(x,y2);ctx.stroke();
+    [[y1,-1],[y2,1]].forEach(([y,d])=>{
+      ctx.beginPath();ctx.moveTo(x-4,y+d*7);ctx.lineTo(x,y);ctx.lineTo(x+4,y+d*7);ctx.stroke();
+    });
+    ctx.font='bold 8.5px Segoe UI';ctx.textAlign='center';
+    ctx.fillText(lbl,x,(y1+y2)/2);
+  }
+  bracket(14,yMax,midY+Vmax*sc,'P-P\n200V','#2e7d32');
+  bracket(W-14,yMin,midY+Vmin*sc,'T-T\n40V','#e65100');
+
+  // fix: draw bracket labels in two passes since canvas doesn't do \n
+  function bracket2(x,y1,y2,l1,l2,color){
+    ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x,y1);ctx.lineTo(x,y2);ctx.stroke();
+    [[y1,-1],[y2,1]].forEach(([y,d])=>{
+      ctx.beginPath();ctx.moveTo(x-4,y+d*7);ctx.lineTo(x,y);ctx.lineTo(x+4,y+d*7);ctx.stroke();
+    });
+    const my=(y1+y2)/2;
+    ctx.font='bold 8.5px Segoe UI';ctx.textAlign='center';
+    ctx.fillText(l1,x,my-5);ctx.fillText(l2,x,my+7);
+  }
+  // Redraw correct brackets
+  ctx.clearRect(0,yMax-5,30,midY+Vmax*sc-yMax+15);
+  ctx.fillStyle='#fafbff';ctx.fillRect(0,yMax-6,30,midY+Vmax*sc-yMax+14);
+  bracket2(14,yMax,midY+Vmax*sc,'P-P','200V','#2e7d32');
+  ctx.clearRect(W-30,yMin-5,30,midY+Vmin*sc-yMin+15);
+  ctx.fillStyle='#fafbff';ctx.fillRect(W-30,yMin-6,30,midY+Vmin*sc-yMin+14);
+  bracket2(W-14,yMin,midY+Vmin*sc,'T-T','40V','#e65100');
+
+  ctx.font='9px Segoe UI';ctx.textAlign='left';
+  [[8,'#3949ab','AM Signal'],[90,'#e53935','Envelope']].forEach(([x,c,l])=>{
+    ctx.fillStyle=c;ctx.fillRect(x,H-20,18,3);ctx.fillStyle=c;ctx.fillText(l,x+22,H-13);
+  });
+})();
+
+// Auto-wrap tables for mobile responsiveness
+document.querySelectorAll('table').forEach(t => {
+  if (!t.parentElement.classList.contains('tbl-wrap')) {
+    const w = document.createElement('div');
+    w.className = 'tbl-wrap';
+    t.parentNode.insertBefore(w, t);
+    w.appendChild(t);
+  }
+});
+</script>
+</body>
+</html>
+
